@@ -1,548 +1,1000 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Changara Muslim Youth Self Help Group (CMY) | Busia County, Kenya</title>
+    <title>Changara Muslim Youth Self Help Group | Teso North, Busia County</title>
     
-    <!-- Google Fonts -->
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Amiri for Arabic Calligraphy & Plus Jakarta Sans for Body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        cmy: {
-                            green: '#0f5132',
-                            darkgreen: '#0a3822',
-                            lightgreen: '#e8f5e9',
-                            gold: '#d4af37',
-                            goldhover: '#b89628',
-                            dark: '#111827',
-                            slate: '#1e293b'
+                        emerald: {
+                            950: '#062318',
+                            900: '#0A3B29',
+                            800: '#0F5132',
+                            700: '#146C43',
+                            600: '#198754',
+                            50: '#F0FDF4'
+                        },
+                        gold: {
+                            300: '#FFE58F',
+                            400: '#E2B93B',
+                            500: '#D4AF37',
+                            600: '#B8860B',
+                            700: '#996515'
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        arabic: ['Amiri', 'serif']
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        amiri: ['Amiri', 'serif']
                     }
                 }
             }
         }
     </script>
     
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        html {
-            scroll-behavior: smooth;
+        /* FIXED HERO OVERLAY: Lightened overlay so photo1.jpg is clearly visible */
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(10, 59, 41, 0.58), rgba(15, 23, 42, 0.65)), 
+                        url('photo1.jpg') center/cover no-repeat;
+            background-attachment: fixed;
         }
-        .hero-overlay {
-            background: linear-gradient(135deg, rgba(10, 56, 34, 0.92) 0%, rgba(17, 24, 39, 0.88) 100%);
+
+        /* Fallback if photo1.jpg is loading or missing gradient texture */
+        .hero-banner-fallback {
+            background-color: #0A3B29;
         }
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #fef08a 0%, #d4af37 50%, #9a7b1c 100%);
+
+        /* Gold Gradient Text */
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #FFE58F 0%, #D4AF37 50%, #B8860B 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .gold-border {
-            border-image: linear-gradient(to right, #d4af37, #fef08a, #d4af37) 1;
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .dark-glass {
+            background: rgba(10, 59, 41, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A3B29;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+
+        /* Arabic Calligraphy Glow */
+        .arabic-text {
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
         }
     </style>
 </head>
-<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-cmy-gold selection:text-cmy-dark">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-gold-500 selection:text-slate-900">
 
-    <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-40 bg-cmy-darkgreen text-white shadow-xl border-b border-cmy-gold/30">
+    <!-- STICKY HEADER / NAVBAR -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-emerald-900/95 backdrop-blur-md border-b border-gold-500/20 text-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
+            <div class="flex items-center justify-between h-20">
                 
-                <!-- Logo & Group Title -->
-                <a href="#" class="flex items-center space-x-3 group">
-                    <img id="nav-logo" src="logo.png" alt="CMY Logo" 
-                         onerror="this.onerror=null; this.src='https://placehold.co/120x120/111827/d4af37?text=CMY+Logo';" 
-                         class="h-12 w-12 rounded-full border-2 border-cmy-gold object-cover shadow-md group-hover:scale-105 transition-transform duration-300">
+                <!-- Logo & Brand Name -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <img src="logo.png" alt="CMY Logo" class="h-12 w-12 rounded-full border-2 border-gold-400 object-cover shadow-md group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/100x100/0A3B29/D4AF37?text=CMY+Logo'">
                     <div>
-                        <span class="block text-lg font-bold tracking-tight text-white group-hover:text-cmy-gold transition-colors">
+                        <span class="block text-lg font-bold tracking-tight text-white group-hover:text-gold-300 transition-colors">
                             Changara Muslim Youth
                         </span>
-                        <span class="block text-xs font-medium text-cmy-gold tracking-widest uppercase">
-                            Self Help Group
+                        <span class="block text-xs text-gold-400 font-medium tracking-wider uppercase">
+                            Self Help Group • Busia, Kenya
                         </span>
                     </div>
                 </a>
 
                 <!-- Desktop Navigation Links -->
-                <div class="hidden md:flex items-center space-x-8 font-medium text-sm">
-                    <a href="#about" class="hover:text-cmy-gold transition-colors py-1">About Us</a>
-                    <a href="#pillars" class="hover:text-cmy-gold transition-colors py-1">Core Pillars</a>
-                    <a href="#gallery" class="hover:text-cmy-gold transition-colors py-1">Photo Gallery</a>
-                    <a href="#join" class="hover:text-cmy-gold transition-colors py-1">Get Involved</a>
-                    <a href="https://wa.me/254700000000?text=Assalamu%20Alaikum,%20I%20would%20like%20to%20know%20more%20about%20Changara%20Muslim%20Youth%20Group" 
-                       target="_blank" 
-                       class="bg-cmy-gold hover:bg-cmy-goldhover text-cmy-dark px-4 py-2 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                <nav class="hidden md:flex items-center gap-7 text-sm font-semibold tracking-wide">
+                    <a href="#about" class="text-slate-200 hover:text-gold-400 transition-colors">About Us</a>
+                    <a href="#activities" class="text-slate-200 hover:text-gold-400 transition-colors">Core Programs</a>
+                    <a href="#december-seminar" class="text-gold-300 hover:text-gold-200 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gold-500/10 border border-gold-400/30">
+                        <i class="fa-solid fa-star text-xs text-gold-400"></i>
+                        <span>Dec Seminar</span>
+                    </a>
+                    <a href="#gallery" class="text-slate-200 hover:text-gold-400 transition-colors">Gallery</a>
+                    <a href="#contact" class="text-slate-200 hover:text-gold-400 transition-colors">Get Involved</a>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <a href="https://www.facebook.com/changara.muslimsyouths.5/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-emerald-800 flex items-center justify-center text-gold-400 hover:bg-gold-500 hover:text-emerald-950 transition-all duration-300 shadow-sm" title="Visit Facebook Page">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://wa.me/254700000000?text=Assalamu%20Alaikum,%20I%20would%20like%20to%20know%20more%20about%20Changara%20Muslim%20Youth." target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-emerald-950 font-bold text-xs uppercase tracking-wider rounded-lg shadow-md hover:shadow-gold-500/20 transition-all duration-300 transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
                         <span>WhatsApp Us</span>
                     </a>
                 </div>
 
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="p-2 rounded-md text-slate-200 hover:text-cmy-gold focus:outline-none">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-slate-200 hover:text-gold-400 focus:outline-none p-2 rounded-lg" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
             </div>
         </div>
 
-        <!-- Mobile Navigation Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-cmy-dark border-t border-cmy-gold/20 px-4 pt-3 pb-6 space-y-3">
-            <a href="#about" class="block text-slate-200 hover:text-cmy-gold py-2 font-medium">About Us</a>
-            <a href="#pillars" class="block text-slate-200 hover:text-cmy-gold py-2 font-medium">Core Pillars</a>
-            <a href="#gallery" class="block text-slate-200 hover:text-cmy-gold py-2 font-medium">Photo Gallery</a>
-            <a href="#join" class="block text-slate-200 hover:text-cmy-gold py-2 font-medium">Get Involved</a>
-            <a href="https://wa.me/254700000000?text=Assalamu%20Alaikum,%20I%20would%20like%20to%20know%20more%20about%20Changara%20Muslim%20Youth%20Group" 
-               target="_blank" 
-               class="block w-full text-center bg-cmy-gold text-cmy-dark py-2.5 rounded-lg font-bold shadow-md">
-                <i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp Direct
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-emerald-950 border-b border-gold-500/20 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-gold-300 hover:bg-emerald-900">About Us</a>
+            <a href="#activities" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-gold-300 hover:bg-emerald-900">Core Programs</a>
+            <a href="#december-seminar" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-gold-300 bg-gold-500/10 border border-gold-400/20">
+                <i class="fa-solid fa-star text-gold-400 mr-2"></i>December Youth Seminar
             </a>
-        </div>
-    </nav>
-
-    <!-- Hero Banner Section -->
-    <header class="relative bg-cmy-dark text-white overflow-hidden min-h-[580px] flex items-center">
-        <!-- Background Overlay with Texture -->
-        <div class="absolute inset-0 hero-overlay z-10"></div>
-        <img src="photo3.jpg" alt="Youth Gathering" 
-             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1600&q=80';"
-             class="absolute inset-0 w-full h-full object-cover object-center filter blur-[2px] opacity-40">
-
-        <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-            
-            <!-- Logo Icon Badge -->
-            <div class="mb-6 inline-block">
-                <img src="logo.png" alt="CMY Emblem" 
-                     onerror="this.onerror=null; this.src='https://placehold.co/150x150/111827/d4af37?text=CMY';"
-                     class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-full border-4 border-cmy-gold shadow-2xl object-cover">
-            </div>
-
-            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 leading-tight">
-                Changara Muslim Youth <br class="hidden sm:inline">
-                <span class="gold-gradient-text">Self Help Group</span>
-            </h1>
-
-            <p class="font-arabic text-2xl text-cmy-gold my-3">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
-
-            <p class="text-lg sm:text-xl text-slate-200 max-w-3xl mx-auto font-light leading-relaxed mb-8">
-                Empowering Youth through Faith, Education, Unity & Self-Reliance in Teso North Sub-County, Busia County.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#join" class="w-full sm:w-auto bg-cmy-gold hover:bg-cmy-goldhover text-cmy-dark font-bold px-8 py-3.5 rounded-lg transition-all transform hover:-translate-y-0.5 shadow-lg text-center">
-                    <i class="fa-solid fa-user-plus mr-2"></i> Join Our Group
+            <a href="#gallery" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-gold-300 hover:bg-emerald-900">Photo Gallery</a>
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-gold-300 hover:bg-emerald-900">Contact & RSVP</a>
+            <div class="pt-2 flex flex-col gap-2">
+                <a href="https://www.facebook.com/changara.muslimsyouths.5/" target="_blank" class="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-blue-600/30 text-blue-200 border border-blue-500/30 font-medium">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span>Follow on Facebook</span>
                 </a>
-                <a href="https://www.facebook.com/changara.muslimsyouths.5/" target="_blank" 
-                   class="w-full sm:w-auto border-2 border-cmy-gold text-cmy-gold hover:bg-cmy-gold hover:text-cmy-dark font-semibold px-8 py-3.5 rounded-lg transition-all text-center flex items-center justify-center gap-2">
-                    <i class="fa-brands fa-facebook text-xl"></i>
-                    <span>Visit Facebook Page</span>
+                <a href="https://wa.me/254700000000" target="_blank" class="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-emerald-600 text-white font-bold">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>WhatsApp Direct Chat</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- About & Spiritual Core -->
-    <section id="about" class="py-16 bg-white border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-cmy-green font-bold uppercase tracking-wider text-sm">Who We Are</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mt-2">United in Faith and Community Progress</h2>
-                <div class="w-20 h-1 bg-cmy-gold mx-auto mt-4 rounded-full"></div>
+    <!-- HERO SECTION WITH CLEAR PHOTO BACKGROUND -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 hero-banner text-white overflow-hidden">
+        <!-- Subtle Decorative Background Patterns -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold-500/10 via-transparent to-transparent pointer-events-none"></div>
+
+        <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-8">
+            
+            <!-- Arabic Bismillah Calligraphy -->
+            <div class="mb-4">
+                <p class="font-amiri text-2xl sm:text-3xl md:text-4xl text-gold-300 tracking-wide arabic-text">
+                    بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+                </p>
+                <p class="text-xs text-gold-200/80 uppercase tracking-widest mt-1 font-medium">
+                    In the name of Allah, the Most Gracious, the Most Merciful
+                </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <p class="text-slate-700 text-lg leading-relaxed">
-                        <strong>Changara Muslim Youth Self Help Group (CMY)</strong> is a dedicated community-based organization located in Changara, Teso North Sub-County, Busia County, Kenya. 
+            <!-- Organization Badge Logo -->
+            <div class="inline-flex items-center justify-center p-2 rounded-full bg-emerald-950/80 border-2 border-gold-400 shadow-2xl mb-6 backdrop-blur-md">
+                <img src="logo.png" alt="CMY Emblem" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover" onerror="this.src='https://placehold.co/120x120/0A3B29/D4AF37?text=CMY'">
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-4 leading-tight drop-shadow-md">
+                Changara Muslim Youth <br>
+                <span class="text-gradient-gold">Self Help Group</span>
+            </h1>
+
+            <!-- Subtitle Location -->
+            <p class="text-base sm:text-xl font-medium text-emerald-100 max-w-3xl mx-auto mb-8 leading-relaxed drop-shadow">
+                Empowering Muslim Youth through Faith, Education, Unity & Community Self-Reliance in <span class="text-gold-300 font-semibold">Teso North Sub-County, Busia County, Kenya</span>.
+            </p>
+
+            <!-- Call to Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                <a href="#december-seminar" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-emerald-950 font-extrabold text-sm uppercase tracking-wider rounded-xl shadow-xl hover:shadow-gold-500/25 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-calendar-check text-base"></i>
+                    <span>December Youth Seminar</span>
+                </a>
+                <a href="https://www.facebook.com/changara.muslimsyouths.5/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 bg-emerald-900/80 hover:bg-emerald-800 text-white font-bold text-sm tracking-wider rounded-xl border border-gold-400/40 backdrop-blur-md shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-facebook text-blue-400 text-lg"></i>
+                    <span>Visit Our Facebook Page</span>
+                </a>
+            </div>
+
+            <!-- Quick Info Tagline Box -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-950/70 border border-gold-400/30 text-xs sm:text-sm text-gold-300 backdrop-blur-md">
+                <i class="fa-solid fa-location-dot text-gold-400"></i>
+                <span>Based at Changara Main Mosque • Serving Teso North Communities</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS COUNTER BAR -->
+    <section class="bg-emerald-900 border-y border-gold-500/30 py-8 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-700/50">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-gold-400 mb-1">500+</div>
+                    <div class="text-xs sm:text-sm text-slate-200 font-medium uppercase tracking-wider">Youth Reached</div>
+                </div>
+                <div class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-700/50">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-gold-400 mb-1">12+</div>
+                    <div class="text-xs sm:text-sm text-slate-200 font-medium uppercase tracking-wider">Mosques Networked</div>
+                </div>
+                <div class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-700/50">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-gold-400 mb-1">1,000+</div>
+                    <div class="text-xs sm:text-sm text-slate-200 font-medium uppercase tracking-wider">Ramadan Meals</div>
+                </div>
+                <div class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-700/50">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-gold-400 mb-1">100%</div>
+                    <div class="text-xs sm:text-sm text-slate-200 font-medium uppercase tracking-wider">Community Driven</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section id="about" class="py-20 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Visual Image Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="photo2.jpg" alt="Changara Youth Group Gathering" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450/0A3B29/FFFFFF?text=Youth+Community+Gathering'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 text-white p-2">
+                            <span class="px-3 py-1 bg-gold-500 text-emerald-950 font-bold text-xs rounded-md uppercase tracking-wider">Community Unity</span>
+                            <p class="text-xs text-slate-200 mt-2">Youth members and children during a community outreach session in Changara.</p>
+                        </div>
+                    </div>
+                    <!-- Decorative Badge Overlay -->
+                    <div class="absolute -bottom-6 -right-6 hidden sm:flex items-center gap-3 p-4 bg-emerald-900 text-white rounded-xl shadow-xl border border-gold-400/40 max-w-xs">
+                        <i class="fa-solid fa-handshake-angle text-3xl text-gold-400"></i>
+                        <p class="text-xs font-semibold">Registered Self Help Group empowering youth in Teso North.</p>
+                    </div>
+                </div>
+
+                <!-- Right Text Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/20">Who We Are</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-emerald-950 mt-3 tracking-tight">
+                            United in Faith, Service & Community Progress
+                        </h2>
+                    </div>
+
+                    <p class="text-slate-600 leading-relaxed text-base">
+                        <strong>Changara Muslim Youth Self Help Group (CMY)</strong> is a community-based organization rooted in Changara, Teso North Sub-County, Busia County. Founded on the Islamic values of brotherhood, compassion, and self-reliance, our group brings together young Muslims to drive positive social and spiritual impact.
                     </p>
-                    <p class="text-slate-600 leading-relaxed">
-                        We bring together Muslim youth and community members to foster spiritual growth, economic self-reliance, youth mentorship, and local development. Through group discussions, Madrasa support, local initiatives, and brotherhood, we strive to build a peaceful and prosperous future.
-                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-gold-400/50 transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-800 mb-3 font-bold">
+                                <i class="fa-solid fa-mosque"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 mb-1">Spiritual Growth</h3>
+                            <p class="text-xs text-slate-500">Conducting youth seminars, Quranic study circles, and moral mentorship across local mosques.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-gold-400/50 transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-gold-100 flex items-center justify-center text-gold-700 mb-3 font-bold">
+                                <i class="fa-solid fa-hands-holding-child"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 mb-1">Social Welfare</h3>
+                            <p class="text-xs text-slate-500">Supporting orphans, vulnerable households, and distributing food during Holy periods.</p>
+                        </div>
+                    </div>
+
+                    <!-- Quote Box -->
+                    <div class="p-4 rounded-xl bg-emerald-900 text-white border-l-4 border-gold-400">
+                        <p class="italic text-sm text-slate-200">
+                            "The best of people are those who are most beneficial to others."
+                        </p>
+                        <p class="text-xs text-gold-300 font-bold mt-1">— Prophet Muhammad (Peace Be Upon Him)</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE ACTIVITIES & PROGRAMS SECTION -->
+    <section id="activities" class="py-20 bg-slate-100 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/20">What We Do</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-emerald-950 mt-3 tracking-tight">
+                    Our Core Community Activities
+                </h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base">
+                    Dedicated to uplifting Changara through faith-based initiatives, seasonal relief, and youth empowerment.
+                </p>
+            </div>
+
+            <!-- Program Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Community Support in Changara -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:border-gold-400/60 transition-all duration-300 hover:-translate-y-1.5 group flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="photo2.jpg" alt="Community Support" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x250/0A3B29/FFFFFF?text=Community+Support'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-3 bg-emerald-800 text-gold-300 text-xs font-bold px-2.5 py-1 rounded">Year-Round</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-emerald-800 font-bold mb-2">
+                                <i class="fa-solid fa-people-roof text-lg text-gold-500"></i>
+                                <h3 class="text-xl font-bold text-slate-900">Community Welfare & Support</h3>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Supporting vulnerable households, widows, and orphans in Changara and across Teso North. We organize environmental cleanup drives, hospital visits, and hardship relief for families in need.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/254700000000?text=I%20want%20to%20support%20Changara%20community%20projects" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-emerald-800 hover:text-gold-600 uppercase tracking-wider">
+                            <span>Support Community Drive</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Ramadan Iftar & Eid fitr -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:border-gold-400/60 transition-all duration-300 hover:-translate-y-1.5 group flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="photo3.jpg" alt="Ramadan Iftar Gatherings" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x250/0A3B29/FFFFFF?text=Ramadan+Iftar'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-3 bg-gold-500 text-emerald-950 text-xs font-bold px-2.5 py-1 rounded">Holy Month</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-emerald-800 font-bold mb-2">
+                                <i class="fa-solid fa-bowl-food text-lg text-gold-500"></i>
+                                <h3 class="text-xl font-bold text-slate-900">Ramadan Iftar & Eid Fitr</h3>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Hosting community Iftar gatherings at local mosques during Ramadan and distributing essential food baskets (rice, flour, sugar, oil) to needy families so everyone can celebrate Eid ul-Fitr with joy.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/254700000000?text=Inquiry%20about%20Ramadan%20Iftar%20Donations" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-emerald-800 hover:text-gold-600 uppercase tracking-wider">
+                            <span>Sponsor Iftar Basket</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Eid al-Adha Qurbani Slaughter -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:border-gold-400/60 transition-all duration-300 hover:-translate-y-1.5 group flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="photo1.jpg" alt="Eid Adha Qurbani" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x250/0A3B29/FFFFFF?text=Eid+Qurbani+Drive'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-3 bg-emerald-800 text-gold-300 text-xs font-bold px-2.5 py-1 rounded">Eid al-Adha</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-emerald-800 font-bold mb-2">
+                                <i class="fa-solid fa-drumstick-bite text-lg text-gold-500"></i>
+                                <h3 class="text-xl font-bold text-slate-900">Qurbani Meat Distribution</h3>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Facilitating livestock sacrifice (Qurbani) during Eid al-Adha. Meat is packaged and distributed directly to impoverished families in Changara and neighboring villages across the sub-county.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/254700000000?text=I%20would%20like%20to%20partner%20for%20Eid%20Qurbani" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-emerald-800 hover:text-gold-600 uppercase tracking-wider">
+                            <span>Partner for Qurbani</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4: Annual Youth Seminars -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:border-gold-400/60 transition-all duration-300 hover:-translate-y-1.5 group flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="photo4.jpg" alt="Youth Seminars" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x250/0A3B29/FFFFFF?text=Annual+Youth+Seminar'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-3 bg-gold-500 text-emerald-950 text-xs font-bold px-2.5 py-1 rounded">Educational</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-emerald-800 font-bold mb-2">
+                                <i class="fa-solid fa-graduation-cap text-lg text-gold-500"></i>
+                                <h3 class="text-xl font-bold text-slate-900">Annual Youth Seminars</h3>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Educational workshops bringing together youth and Muslim scholars from Changara and surrounding mosques. Topics include Islamic character, career guidance, and drug abuse prevention.
+                            </p>
+                        </div>
+                        <a href="#december-seminar" class="inline-flex items-center gap-2 text-xs font-bold text-emerald-800 hover:text-gold-600 uppercase tracking-wider">
+                            <span>See December Event</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 5: Self-Reliance & Group Savings -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:border-gold-400/60 transition-all duration-300 hover:-translate-y-1.5 group flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="photo3.jpg" alt="Economic Empowerment" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x250/0A3B29/FFFFFF?text=Youth+Self-Reliance'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-3 bg-emerald-800 text-gold-300 text-xs font-bold px-2.5 py-1 rounded">Self Help</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-emerald-800 font-bold mb-2">
+                                <i class="fa-solid fa-piggy-bank text-lg text-gold-500"></i>
+                                <h3 class="text-xl font-bold text-slate-900">Youth Savings & Skill Building</h3>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Promoting table banking, group investments, and vocational training to empower members financially and foster sustainable self-reliance among young people.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/254700000000?text=I%20want%20to%20join%20the%20Youth%20Self%20Help%20Group" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-emerald-800 hover:text-gold-600 uppercase tracking-wider">
+                            <span>Join Self Help Group</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 6: Inter-Mosque Network -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:border-gold-400/60 transition-all duration-300 hover:-translate-y-1.5 group flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="photo4.jpg" alt="Mosque Collaboration" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x250/0A3B29/FFFFFF?text=Inter-Mosque+Unity'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-3 bg-gold-500 text-emerald-950 text-xs font-bold px-2.5 py-1 rounded">Networking</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 text-emerald-800 font-bold mb-2">
+                                <i class="fa-solid fa-hand-holding-hand text-lg text-gold-500"></i>
+                                <h3 class="text-xl font-bold text-slate-900">Inter-Mosque Collaboration</h3>
+                            </div>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Uniting youth groups from neighbouring mosques in Teso North and Busia County for joint sports tournaments, Islamic quizzes, and collaborative community projects.
+                            </p>
+                        </div>
+                        <button onclick="openRsvpModal()" class="inline-flex items-center gap-2 text-xs font-bold text-emerald-800 hover:text-gold-600 uppercase tracking-wider">
+                            <span>Register Mosque Delegation</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED DECEMBER ANNUAL YOUTH SEMINAR SECTION -->
+    <section id="december-seminar" class="py-20 bg-emerald-950 text-white relative overflow-hidden">
+        <!-- Subtle background glowing accents -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-emerald-800/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            
+            <div class="p-8 sm:p-12 rounded-3xl dark-glass border-2 border-gold-400/40 shadow-2xl">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     
-                    <div class="p-4 bg-cmy-lightgreen border-l-4 border-cmy-green rounded-r-lg space-y-1">
-                        <p class="font-semibold text-cmy-darkgreen">📍 Location:</p>
-                        <p class="text-slate-700 text-sm">Changara Division, Teso North Sub-County, Busia County, Kenya</p>
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/20 border border-gold-400/40 text-gold-300 text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-star"></i>
+                            <span>Upcoming Flagship Event</span>
+                        </div>
+
+                        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                            Annual Youth Seminar <br>
+                            <span class="text-gradient-gold">December Edition</span>
+                        </h2>
+
+                        <p class="text-slate-200 text-base leading-relaxed">
+                            We are excited to host our annual youth convergence in December at <strong>Changara Main Mosque Grounds</strong>. We officially invite youth delegations, imams, and leaders from <strong>all neighbouring mosques</strong> across Teso North and Busia County for an inspiring 2-day seminar!
+                        </p>
+
+                        <!-- Seminar Highlights Bullet Points -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-sm">
+                            <div class="flex items-center gap-2.5 text-slate-200">
+                                <i class="fa-solid fa-circle-check text-gold-400"></i>
+                                <span>Guest Lectures by Renowned Scholars</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 text-slate-200">
+                                <i class="fa-solid fa-circle-check text-gold-400"></i>
+                                <span>Youth Mentorship & Career Talks</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 text-slate-200">
+                                <i class="fa-solid fa-circle-check text-gold-400"></i>
+                                <span>Quran Recitation & Islamic Quiz</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 text-slate-200">
+                                <i class="fa-solid fa-circle-check text-gold-400"></i>
+                                <span>Networking & Shared Meals</span>
+                            </div>
+                        </div>
+
+                        <!-- Location & Time Info -->
+                        <div class="flex flex-wrap gap-4 pt-4 border-t border-emerald-800/80 text-xs sm:text-sm">
+                            <div class="flex items-center gap-2 text-gold-300 font-medium">
+                                <i class="fa-solid fa-location-dot text-gold-400"></i>
+                                <span>Changara Main Mosque Grounds, Teso North</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-gold-300 font-medium">
+                                <i class="fa-solid fa-clock text-gold-400"></i>
+                                <span>Scheduled for December 2026</span>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Countdown & Action Column -->
+                    <div class="lg:col-span-5 bg-emerald-900/90 p-6 sm:p-8 rounded-2xl border border-gold-400/30 text-center space-y-6 shadow-xl">
+                        
+                        <h3 class="text-lg font-bold text-gold-300 uppercase tracking-wide">
+                            Seminar Countdown
+                        </h3>
+
+                        <!-- Countdown Timer Display -->
+                        <div class="grid grid-cols-4 gap-2 text-center" id="countdown-timer">
+                            <div class="p-3 bg-emerald-950 rounded-xl border border-gold-500/20">
+                                <span id="days" class="block text-2xl sm:text-3xl font-extrabold text-gold-400">00</span>
+                                <span class="text-[10px] text-slate-300 uppercase font-semibold">Days</span>
+                            </div>
+                            <div class="p-3 bg-emerald-950 rounded-xl border border-gold-500/20">
+                                <span id="hours" class="block text-2xl sm:text-3xl font-extrabold text-gold-400">00</span>
+                                <span class="text-[10px] text-slate-300 uppercase font-semibold">Hours</span>
+                            </div>
+                            <div class="p-3 bg-emerald-950 rounded-xl border border-gold-500/20">
+                                <span id="minutes" class="block text-2xl sm:text-3xl font-extrabold text-gold-400">00</span>
+                                <span class="text-[10px] text-slate-300 uppercase font-semibold">Mins</span>
+                            </div>
+                            <div class="p-3 bg-emerald-950 rounded-xl border border-gold-500/20">
+                                <span id="seconds" class="block text-2xl sm:text-3xl font-extrabold text-gold-400">00</span>
+                                <span class="text-[10px] text-slate-300 uppercase font-semibold">Secs</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 pt-2">
+                            <button onclick="openRsvpModal()" class="w-full py-3.5 px-6 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-emerald-950 font-extrabold text-sm uppercase tracking-wider rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+                                Register Mosque Delegation
+                            </button>
+                            <a href="https://wa.me/254700000000?text=Assalamu%20Alaikum,%20I%20want%20to%20inquire%20about%20the%20December%20Youth%20Seminar." target="_blank" class="block w-full py-3 px-6 bg-emerald-800 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl border border-gold-400/30 transition-colors">
+                                <i class="fa-brands fa-whatsapp text-sm mr-2 text-gold-400"></i>Contact Seminar Committee
+                            </a>
+                        </div>
+
+                        <p class="text-[11px] text-slate-300 italic">
+                            *All neighbouring mosques are requested to send representation. Accommodation & food provided for registered delegates.
+                        </p>
+                    </div>
+
                 </div>
 
-                <!-- Callout Box / Quran Verse -->
-                <div class="bg-cmy-dark text-white p-8 rounded-2xl shadow-xl relative overflow-hidden border border-cmy-gold/30">
-                    <div class="absolute -right-6 -bottom-6 opacity-10 text-cmy-gold text-9xl">
-                        <i class="fa-solid fa-mosque"></i>
-                    </div>
-                    <p class="font-arabic text-2xl text-cmy-gold text-right mb-4 leading-loose">
-                        وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ
-                    </p>
-                    <p class="text-slate-200 text-lg italic mb-4">
-                        "And cooperate in righteousness and piety, but do not cooperate in sin and aggression."
-                    </p>
-                    <p class="text-cmy-gold text-sm font-semibold">— Surah Al-Ma'idah (5:2)</p>
-                </div>
             </div>
+
         </div>
     </section>
 
-    <!-- Core Pillars Section -->
-    <section id="pillars" class="py-16 bg-slate-100">
+    <!-- PHOTO GALLERY WITH LIGHTBOX -->
+    <section id="gallery" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-cmy-green font-bold uppercase tracking-wider text-sm">What We Do</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mt-2">Our Key Pillars & Activities</h2>
-                <div class="w-20 h-1 bg-cmy-gold mx-auto mt-4 rounded-full"></div>
-            </div>
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/20">Media Gallery</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-emerald-950 mt-3 tracking-tight">
+                    Moments in Our Journey
+                </h2>
+                <p class="text-slate-600 mt-2 text-sm">
+                    Snapshots of our youth meetings, community drives, and Islamic gatherings in Changara.
+                </p>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Pillar 1 -->
-                <div class="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow border-t-4 border-cmy-green flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 bg-cmy-lightgreen text-cmy-green rounded-lg flex items-center justify-center text-2xl mb-6">
-                            <i class="fa-solid fa-book-quran"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">Islamic Guidance & Youth Halaqas</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            Organizing regularly scheduled halaqa study circles, Jummah reminders, and religious guidance to instill strong moral values and authentic Islamic knowledge among youth.
-                        </p>
-                    </div>
-                    <span class="text-cmy-green font-semibold text-xs uppercase tracking-wider">Spiritual Growth</span>
-                </div>
-
-                <!-- Pillar 2 -->
-                <div class="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow border-t-4 border-cmy-gold flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 bg-amber-50 text-cmy-goldhover rounded-lg flex items-center justify-center text-2xl mb-6">
-                            <i class="fa-solid fa-handshake-angle"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">Youth Empowerment & Self-Help</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            Promoting economic independence through self-help savings schemes, entrepreneurship discussions, skill development workshops, and youth leadership initiatives.
-                        </p>
-                    </div>
-                    <span class="text-cmy-goldhover font-semibold text-xs uppercase tracking-wider">Economic Progress</span>
-                </div>
-
-                <!-- Pillar 3 -->
-                <div class="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow border-t-4 border-cmy-green flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 bg-cmy-lightgreen text-cmy-green rounded-lg flex items-center justify-center text-2xl mb-6">
-                            <i class="fa-solid fa-people-roof"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">Community Welfare & Education</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            Supporting local Madrasas, mentoring younger children, organizing charitable outreaches, and promoting peaceful coexistence across Changara Division.
-                        </p>
-                    </div>
-                    <span class="text-cmy-green font-semibold text-xs uppercase tracking-wider">Community Service</span>
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 mt-8" id="gallery-filters">
+                    <button class="gallery-filter-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-lg bg-emerald-900 text-gold-300 border border-gold-400/40 shadow-sm" data-filter="all">All Photos</button>
+                    <button class="gallery-filter-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-lg bg-white text-slate-700 hover:bg-emerald-100 border border-slate-200" data-filter="seminars">Seminars</button>
+                    <button class="gallery-filter-btn px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-lg bg-white text-slate-700 hover:bg-emerald-100 border border-slate-200" data-filter="community">Community</button>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Interactive Photo Gallery -->
-    <section id="gallery" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-cmy-green font-bold uppercase tracking-wider text-sm">Group Life</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mt-2">Community Gallery</h2>
-                <p class="text-slate-600 mt-2">A glimpse into our youth halaqa meetings, Madrasa gatherings, and community events.</p>
-                <div class="w-20 h-1 bg-cmy-gold mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <!-- Image Grid -->
+            <!-- Gallery Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 
-                <!-- Image Item 1 -->
-                <div class="group relative bg-slate-900 rounded-xl overflow-hidden shadow-md cursor-pointer hover:shadow-2xl transition-all"
-                     onclick="openLightbox('photo1.jpg', 'Youth Halaqa & Mosque Discussion - Group members gathering inside the mosque for discussions.')">
-                    <img src="photo1.jpg" alt="Youth Halaqa Session" 
-                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590076175571-4b5459efb08c?auto=format&fit=crop&w=800&q=80';"
-                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
-                        <span class="text-cmy-gold text-xs font-semibold uppercase">Youth Gathering</span>
-                        <p class="text-white text-sm font-medium">Mosque Halaqa & Planning</p>
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item community group relative rounded-2xl overflow-hidden shadow-md cursor-pointer bg-slate-200 aspect-[4/3]" onclick="openLightbox('photo1.jpg', 'Outdoor Community Youth Gathering')">
+                    <img src="photo1.jpg" alt="Outdoor Youth Gathering" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450/0A3B29/FFFFFF?text=Outdoor+Youth+Gathering'">
+                    <div class="absolute inset-0 bg-emerald-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-center p-4">
+                        <div>
+                            <i class="fa-solid fa-magnifying-glass-plus text-gold-400 text-3xl mb-2"></i>
+                            <p class="text-white text-xs font-bold">Outdoor Youth Gathering</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Image Item 2 -->
-                <div class="group relative bg-slate-900 rounded-xl overflow-hidden shadow-md cursor-pointer hover:shadow-2xl transition-all"
-                     onclick="openLightbox('photo2.jpg', 'Madrasa Learning & Mentorship - Interactive session with children in Changara.')">
-                    <img src="photo2.jpg" alt="Madrasa Learning Session" 
-                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80';"
-                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
-                        <span class="text-cmy-gold text-xs font-semibold uppercase">Education</span>
-                        <p class="text-white text-sm font-medium">Youth Mentorship Session</p>
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item community group relative rounded-2xl overflow-hidden shadow-md cursor-pointer bg-slate-200 aspect-[4/3]" onclick="openLightbox('photo2.jpg', 'Youth and Children Community Support')">
+                    <img src="photo2.jpg" alt="Youth & Children Support" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450/0A3B29/FFFFFF?text=Youth+%26+Children+Support'">
+                    <div class="absolute inset-0 bg-emerald-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-center p-4">
+                        <div>
+                            <i class="fa-solid fa-magnifying-glass-plus text-gold-400 text-3xl mb-2"></i>
+                            <p class="text-white text-xs font-bold">Youth & Children Support</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Image Item 3 -->
-                <div class="group relative bg-slate-900 rounded-xl overflow-hidden shadow-md cursor-pointer hover:shadow-2xl transition-all"
-                     onclick="openLightbox('photo3.jpg', 'Group Consultation - Youth leaders sitting together in circle format.')">
-                    <img src="photo3.jpg" alt="Group Consultation" 
-                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80';"
-                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
-                        <span class="text-cmy-gold text-xs font-semibold uppercase">Brotherhood</span>
-                        <p class="text-white text-sm font-medium">Group Discussion Circle</p>
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item seminars group relative rounded-2xl overflow-hidden shadow-md cursor-pointer bg-slate-200 aspect-[4/3]" onclick="openLightbox('photo3.jpg', 'Mosque Indoor Mentorship Meeting')">
+                    <img src="photo3.jpg" alt="Mosque Indoor Meeting" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450/0A3B29/FFFFFF?text=Mosque+Mentorship+Meeting'">
+                    <div class="absolute inset-0 bg-emerald-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-center p-4">
+                        <div>
+                            <i class="fa-solid fa-magnifying-glass-plus text-gold-400 text-3xl mb-2"></i>
+                            <p class="text-white text-xs font-bold">Mosque Mentorship Meeting</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Image Item 4 -->
-                <div class="group relative bg-slate-900 rounded-xl overflow-hidden shadow-md cursor-pointer hover:shadow-2xl transition-all"
-                     onclick="openLightbox('photo4.jpg', 'Community Gathering - Women and youth assembled outside the community venue.')">
-                    <img src="photo4.jpg" alt="Community Outdoor Gathering" 
-                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80';"
-                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
-                        <span class="text-cmy-gold text-xs font-semibold uppercase">Outreach</span>
-                        <p class="text-white text-sm font-medium">Community Assembly</p>
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item seminars group relative rounded-2xl overflow-hidden shadow-md cursor-pointer bg-slate-200 aspect-[4/3]" onclick="openLightbox('photo4.jpg', 'Youth Circle & Islamic Discussion')">
+                    <img src="photo4.jpg" alt="Youth Circle Discussion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x450/0A3B29/FFFFFF?text=Youth+Circle+Discussion'">
+                    <div class="absolute inset-0 bg-emerald-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-center p-4">
+                        <div>
+                            <i class="fa-solid fa-magnifying-glass-plus text-gold-400 text-3xl mb-2"></i>
+                            <p class="text-white text-xs font-bold">Youth Circle Discussion</p>
+                        </div>
                     </div>
                 </div>
 
             </div>
+
         </div>
     </section>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4">
-        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-cmy-gold focus:outline-none">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="max-w-4xl max-h-[90vh] flex flex-col items-center">
-            <img id="lightbox-img" src="" class="max-h-[75vh] w-auto object-contain rounded-lg shadow-2xl border-2 border-cmy-gold">
-            <p id="lightbox-caption" class="text-white mt-4 text-center text-sm font-light px-4 max-w-2xl"></p>
+    <!-- FACEBOOK COMMUNITY CALLOUT BANNER -->
+    <section class="py-12 bg-blue-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-4">
+                <div class="w-16 h-16 rounded-2xl bg-blue-800 flex items-center justify-center text-3xl text-white shrink-0 shadow-lg">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-bold">Follow Our Official Facebook Page</h3>
+                    <p class="text-blue-200 text-sm mt-1">
+                        Stay updated with live photos, seminar announcements, and community news from Changara Muslim Youth.
+                    </p>
+                </div>
+            </div>
+            <a href="https://www.facebook.com/changara.muslimsyouths.5/" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 bg-white text-blue-900 font-extrabold text-sm rounded-xl shadow-xl hover:bg-blue-50 transition-colors uppercase tracking-wider shrink-0 flex items-center gap-2">
+                <span>Visit Facebook Page</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </a>
         </div>
-    </div>
+    </section>
 
-    <!-- Get Involved Section -->
-    <section id="join" class="py-16 bg-slate-100">
+    <!-- CONTACT & REGISTRATION FORM SECTION -->
+    <section id="contact" class="py-20 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-12 gap-12 items-start">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 
-                <!-- Contact & WhatsApp Details -->
+                <!-- Left Info Box -->
                 <div class="lg:col-span-5 space-y-6">
                     <div>
-                        <span class="text-cmy-green font-bold uppercase tracking-wider text-sm">Connect With Us</span>
-                        <h2 class="text-3xl font-bold text-slate-900 mt-2">Get Involved & Support</h2>
-                        <div class="w-16 h-1 bg-cmy-gold mt-3 rounded-full"></div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/20">Get In Touch</span>
+                        <h2 class="text-3xl font-extrabold text-emerald-950 mt-3 tracking-tight">
+                            Connect With Us
+                        </h2>
+                        <p class="text-slate-600 text-sm mt-2">
+                            Whether you want to join our self-help group, support our Ramadan/Qurbani projects, or register your mosque for the December Seminar, reach out to us today!
+                        </p>
                     </div>
 
-                    <p class="text-slate-600 leading-relaxed">
-                        Whether you are a youth looking to join our group activities, a community member seeking partnership, or a well-wisher offering support, we warmly welcome you!
-                    </p>
-
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 bg-cmy-green text-cmy-gold rounded-lg flex items-center justify-center text-lg flex-shrink-0">
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 font-bold">
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-900">Location</h4>
-                                <p class="text-slate-600 text-sm">Changara, Teso North Sub-County, Busia County, Kenya</p>
+                                <h4 class="font-bold text-slate-900 text-sm">Location</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">Changara Main Mosque, Teso North Sub-County, Busia County, Kenya</p>
                             </div>
                         </div>
 
-                        <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 bg-cmy-green text-cmy-gold rounded-lg flex items-center justify-center text-lg flex-shrink-0">
-                                <i class="fa-brands fa-facebook-f"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-900">Facebook Page</h4>
-                                <a href="https://www.facebook.com/changara.muslimsyouths.5/" target="_blank" class="text-cmy-green font-medium text-sm hover:underline">
-                                    Changara Muslims Youth
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 bg-emerald-600 text-white rounded-lg flex items-center justify-center text-lg flex-shrink-0">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-gold-100 text-gold-700 flex items-center justify-center shrink-0 font-bold">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-900">Direct WhatsApp</h4>
-                                <a href="https://wa.me/254700000000?text=Assalamu%20Alaikum" target="_blank" class="text-emerald-600 font-medium text-sm hover:underline">
-                                    Chat with Group Coordinator
-                                </a>
+                                <h4 class="font-bold text-slate-900 text-sm">WhatsApp & Phone</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">+254 700 000 000 (Official Youth Coordinator)</p>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Direct Callout Box -->
-                    <div class="p-6 bg-cmy-dark text-white rounded-xl border-l-4 border-cmy-gold">
-                        <h4 class="font-bold text-cmy-gold text-lg mb-1">Join Our Group Meetings</h4>
-                        <p class="text-slate-300 text-sm">
-                            We regularly meet for halaqa discussions, savings group reviews, and project planning in Changara.
-                        </p>
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 font-bold">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Facebook Page</h4>
+                                <a href="https://www.facebook.com/changara.muslimsyouths.5/" target="_blank" class="text-xs text-blue-600 hover:underline mt-0.5 block">facebook.com/changara.muslimsyouths.5/</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Contact Form -->
-                <div class="lg:col-span-7 bg-white rounded-2xl shadow-xl p-8 border border-slate-200">
-                    <h3 class="text-2xl font-bold text-slate-900 mb-6">Send Us a Message</h3>
-                    
+                <!-- Right Form Box -->
+                <div class="lg:col-span-7 bg-white p-8 rounded-3xl border border-slate-200 shadow-xl">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane text-emerald-800"></i>
+                        <span>Send Message or Seminar RSVP</span>
+                    </h3>
+
                     <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">Full Name</label>
-                            <input type="text" required placeholder="e.g. Ibrahim Omar" 
-                                   class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-cmy-green focus:border-cmy-green outline-none transition">
-                        </div>
-
-                        <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-1">Phone Number (WhatsApp)</label>
-                                <input type="tel" required placeholder="+254 7XX XXX XXX" 
-                                       class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-cmy-green focus:border-cmy-green outline-none transition">
+                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Your Full Name</label>
+                                <input type="text" required placeholder="e.g. Brother Kassim" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-gold-500 focus:border-emerald-800 outline-none text-sm">
                             </div>
                             <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-1">Interest / Purpose</label>
-                                <select class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-cmy-green focus:border-cmy-green outline-none transition">
-                                    <option>Become a Youth Member</option>
-                                    <option>Community Partnership</option>
-                                    <option>Sponsor / Support Project</option>
-                                    <option>General Inquiry</option>
-                                </select>
+                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Phone / WhatsApp Number</label>
+                                <input type="tel" required placeholder="e.g. 0712345678" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-gold-500 focus:border-emerald-800 outline-none text-sm">
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">Message</label>
-                            <textarea rows="4" required placeholder="Write your message or inquiry here..." 
-                                      class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-cmy-green focus:border-cmy-green outline-none transition"></textarea>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Inquiry Purpose</label>
+                            <select id="inquiry-type" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-gold-500 focus:border-emerald-800 outline-none text-sm bg-white">
+                                <option value="seminar">Register Mosque Delegation for December Seminar</option>
+                                <option value="join">Join Changara Muslim Youth Self Help Group</option>
+                                <option value="iftar">Support Ramadan Iftar / Eid fitr Project</option>
+                                <option value="qurbani">Partner for Eid al-Adha Qurbani</option>
+                                <option value="general">General Community Inquiry</option>
+                            </select>
                         </div>
 
-                        <button type="submit" class="w-full bg-cmy-green hover:bg-cmy-darkgreen text-white font-bold py-3.5 rounded-lg transition-all shadow-md">
-                            Submit Message
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Mosque / Village Name (Optional)</label>
+                            <input type="text" placeholder="e.g. Changara Mosque / Akites Village" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-gold-500 focus:border-emerald-800 outline-none text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Your Message or Delegation Details</label>
+                            <textarea rows="4" required placeholder="Specify estimated number of delegates or details about your inquiry..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-gold-500 focus:border-emerald-800 outline-none text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-emerald-900 hover:bg-emerald-800 text-gold-300 font-extrabold text-sm uppercase tracking-wider rounded-xl shadow-md transition-all duration-300 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Submit Information</span>
                         </button>
-                    </form>
 
-                    <!-- Success Message Container -->
-                    <div id="form-success" class="hidden mt-4 p-4 bg-emerald-100 text-emerald-800 rounded-lg text-center font-medium">
-                        <i class="fa-solid fa-circle-check text-xl mr-2"></i>
-                        Thank you! Your message has been received. We will get back to you shortly.
-                    </div>
+                        <div id="form-success-msg" class="hidden p-4 rounded-xl bg-emerald-100 text-emerald-900 text-sm font-semibold text-center border border-emerald-300">
+                            <i class="fa-solid fa-circle-check text-emerald-700 text-lg mr-2"></i>
+                            JazakAllah Khair! Your message has been prepared. Redirecting to WhatsApp...
+                        </div>
+                    </form>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-cmy-dark text-slate-300 py-12 border-t-2 border-cmy-gold">
+    <!-- FOOTER -->
+    <footer class="bg-emerald-950 text-white border-t border-gold-500/30 pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-emerald-900">
                 
-                <div class="flex items-center space-x-3">
-                    <img src="logo.png" alt="CMY Logo" 
-                         onerror="this.onerror=null; this.src='https://placehold.co/80x80/111827/d4af37?text=CMY';"
-                         class="h-10 w-10 rounded-full border border-cmy-gold object-cover">
-                    <div>
-                        <p class="font-bold text-white">Changara Muslim Youth Self Help Group</p>
-                        <p class="text-xs text-cmy-gold">Teso North Sub-County, Busia County, Kenya</p>
+                <!-- Col 1: Brand -->
+                <div class="space-y-4 md:col-span-2">
+                    <div class="flex items-center gap-3">
+                        <img src="logo.png" alt="CMY Footer Logo" class="w-12 h-12 rounded-full border border-gold-400" onerror="this.src='https://placehold.co/100x100/0A3B29/D4AF37?text=CMY'">
+                        <div>
+                            <h4 class="text-lg font-bold text-gold-300">Changara Muslim Youth</h4>
+                            <p class="text-xs text-slate-400">Self Help Group • Teso North, Busia County</p>
+                        </div>
                     </div>
+                    <p class="text-slate-300 text-xs leading-relaxed max-w-md">
+                        Empowering youth in Changara through Islamic values, economic self-reliance, seasonal relief, and inter-mosque fellowship.
+                    </p>
                 </div>
 
-                <p class="text-sm text-slate-400">
-                    &copy; 2026 Changara Muslim Youth. All rights reserved.
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h5 class="text-sm font-bold text-gold-400 uppercase tracking-wider mb-4">Quick Links</h5>
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li><a href="#about" class="hover:text-gold-300">About Us</a></li>
+                        <li><a href="#activities" class="hover:text-gold-300">Ramadan & Qurbani Drives</a></li>
+                        <li><a href="#december-seminar" class="hover:text-gold-300">December Youth Seminar</a></li>
+                        <li><a href="#gallery" class="hover:text-gold-300">Photo Gallery</a></li>
+                        <li><a href="https://www.facebook.com/changara.muslimsyouths.5/" target="_blank" class="hover:text-gold-300">Facebook Page</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Mosque Address -->
+                <div>
+                    <h5 class="text-sm font-bold text-gold-400 uppercase tracking-wider mb-4">Headquarters</h5>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Changara Main Mosque Grounds,<br>
+                        Teso North Sub-County,<br>
+                        Busia County, Kenya.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+                <p>&copy; 2026 Changara Muslim Youth Self Help Group. All rights reserved.</p>
+                <p class="flex items-center gap-1">
+                    <span>Designed with care for the Changara Muslim Community</span>
+                    <i class="fa-solid fa-heart text-gold-500 text-xs"></i>
                 </p>
-
-                <div class="flex space-x-4 text-xl">
-                    <a href="https://www.facebook.com/changara.muslimsyouths.5/" target="_blank" class="hover:text-cmy-gold transition-colors">
-                        <i class="fa-brands fa-facebook"></i>
-                    </a>
-                    <a href="https://wa.me/254700000000" target="_blank" class="hover:text-cmy-gold transition-colors">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </a>
-                </div>
-
             </div>
         </div>
     </footer>
 
-    <script>
-        // Mobile Navigation Menu Toggle
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-black/95 flex items-center justify-center p-4 backdrop-blur-md">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-gold-400 text-3xl focus:outline-none z-10">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl max-h-[90vh] text-center space-y-3">
+            <img id="lightbox-img" src="" alt="Enlarged photo" class="max-w-full max-h-[80vh] rounded-xl object-contain mx-auto border-2 border-gold-400/40">
+            <p id="lightbox-caption" class="text-gold-300 font-semibold text-sm sm:text-base"></p>
+        </div>
+    </div>
 
-        mobileBtn.addEventListener('click', () => {
+    <!-- DECEMBER SEMINAR RSVP MODAL -->
+    <div id="rsvp-modal" class="fixed inset-0 z-50 hidden bg-emerald-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-emerald-900 border-2 border-gold-400 text-white p-6 sm:p-8 rounded-3xl max-w-lg w-full relative shadow-2xl space-y-4">
+            <button onclick="closeRsvpModal()" class="absolute top-4 right-4 text-slate-300 hover:text-gold-400 text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center">
+                <div class="w-12 h-12 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center mx-auto mb-2 text-xl font-bold">
+                    <i class="fa-solid fa-mosque"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gold-300">Mosque Delegation RSVP</h3>
+                <p class="text-xs text-slate-300 mt-1">Register your mosque for the December Youth Seminar in Changara</p>
+            </div>
+
+            <form onsubmit="handleRsvpSubmit(event)" class="space-y-3 pt-2">
+                <div>
+                    <label class="block text-xs text-gold-300 font-bold mb-1">Mosque Name</label>
+                    <input type="text" required placeholder="e.g. Malaba Central Mosque" class="w-full px-3.5 py-2.5 rounded-lg bg-emerald-950 border border-gold-500/40 text-white text-sm outline-none focus:border-gold-400">
+                </div>
+                <div>
+                    <label class="block text-xs text-gold-300 font-bold mb-1">Lead Contact Person</label>
+                    <input type="text" required placeholder="Name of Imam / Youth Leader" class="w-full px-3.5 py-2.5 rounded-lg bg-emerald-950 border border-gold-500/40 text-white text-sm outline-none focus:border-gold-400">
+                </div>
+                <div>
+                    <label class="block text-xs text-gold-300 font-bold mb-1">Phone / WhatsApp Number</label>
+                    <input type="tel" required placeholder="07XXXXXXXX" class="w-full px-3.5 py-2.5 rounded-lg bg-emerald-950 border border-gold-500/40 text-white text-sm outline-none focus:border-gold-400">
+                </div>
+                <div>
+                    <label class="block text-xs text-gold-300 font-bold mb-1">Estimated Number of Delegates</label>
+                    <input type="number" min="1" required placeholder="e.g. 10" class="w-full px-3.5 py-2.5 rounded-lg bg-emerald-950 border border-gold-500/40 text-white text-sm outline-none focus:border-gold-400">
+                </div>
+
+                <button type="submit" class="w-full py-3 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-emerald-950 font-extrabold text-sm uppercase tracking-wider rounded-xl shadow-lg mt-2">
+                    Confirm Delegation RSVP
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        /* Mobile Menu Drawer Toggle */
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Close mobile menu on link click
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
+        mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
         });
 
-        // Interactive Lightbox Functionality
-        function openLightbox(src, caption) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const lightboxCaption = document.getElementById('lightbox-caption');
+        /* DECEMBER SEMINAR COUNTDOWN TIMER LOGIC */
+        function updateCountdown() {
+            // Target Date: December 20, 2026
+            const targetDate = new Date('December 20, 2026 09:00:00').getTime();
+            const now = new Date().getTime();
+            const difference = targetDate - now;
 
-            lightboxImg.src = src;
-            lightboxCaption.textContent = caption;
-            lightbox.classList.remove('hidden');
-            lightbox.classList.add('flex');
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = String(days).padStart(2, '0');
+                document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+                document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+            } else {
+                document.getElementById('countdown-timer').innerHTML = "<div class='col-span-4 text-gold-400 font-bold text-lg'>Seminar is Happening Now!</div>";
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        /* GALLERY FILTER LOGIC */
+        const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-emerald-900', 'text-gold-300', 'border-gold-400/40');
+                    b.classList.add('bg-white', 'text-slate-700');
+                });
+                btn.classList.remove('bg-white', 'text-slate-700');
+                btn.classList.add('bg-emerald-900', 'text-gold-300', 'border-gold-400/40');
+
+                const filter = btn.getAttribute('data-filter');
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        /* LIGHTBOX MODAL LOGIC */
+        function openLightbox(imgSrc, captionText) {
+            const modal = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            const caption = document.getElementById('lightbox-caption');
+            img.src = imgSrc;
+            caption.innerText = captionText;
+            modal.classList.remove('hidden');
         }
 
         function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.add('hidden');
-            lightbox.classList.remove('flex');
+            document.getElementById('lightbox-modal').classList.add('hidden');
         }
 
-        // Close lightbox on clicking dark backdrop
-        document.getElementById('lightbox').addEventListener('click', (e) => {
-            if (e.target.id === 'lightbox') {
-                closeLightbox();
-            }
-        });
+        /* RSVP MODAL LOGIC */
+        function openRsvpModal() {
+            document.getElementById('rsvp-modal').classList.remove('hidden');
+        }
 
-        // Contact Form Submission Handler
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const form = document.getElementById('contact-form');
-            const successMsg = document.getElementById('form-success');
+        function closeRsvpModal() {
+            document.getElementById('rsvp-modal').classList.add('hidden');
+        }
 
-            form.classList.add('opacity-50', 'pointer-events-none');
+        function handleRsvpSubmit(e) {
+            e.preventDefault();
+            alert('JazakAllah Khair! Your mosque delegation RSVP has been received. Our seminar team will reach out to confirm details.');
+            closeRsvpModal();
+        }
+
+        /* FORM SUBMISSION TO WHATSAPP INTEGRATION */
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const msgBox = document.getElementById('form-success-msg');
+            msgBox.classList.remove('hidden');
+            
             setTimeout(() => {
-                form.reset();
-                form.classList.remove('opacity-50', 'pointer-events-none');
-                successMsg.classList.remove('hidden');
-                setTimeout(() => successMsg.classList.add('hidden'), 5000);
-            }, 600);
+                const whatsappUrl = "https://wa.me/254700000000?text=Assalamu%20Alaikum,%20I%20have%20submitted%20an%20inquiry%20via%20the%20Changara%20Muslim%20Youth%20Website.";
+                window.open(whatsappUrl, '_blank');
+            }, 1500);
         }
     </script>
 </body>
 </html>
-```
-
----
-
-### How to add your exact uploaded images to GitHub:
-
-To make your uploaded photos appear on your website:
-
-1. In your GitHub repository, upload your images with these **exact file names**:
-   * **Logo:** Name it `logo.png`
-   * **Mosque Halaqa photo:** Name it `photo1.jpg`
-   * **Children Madrasa photo:** Name it `photo2.jpg`
-   * **Circle discussion photo:** Name it `photo3.jpg`
-   * **Outdoor group gathering photo:** Name it `photo4.jpg`
-
-2. Place them in the same main folder as your `index.html` file. As soon as you commit the changes on GitHub, the website will automatically load your custom images!
