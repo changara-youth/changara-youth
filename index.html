@@ -3,324 +3,546 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Changara Muslim Youth | Faith in Action, Unity & Youth Empowerment</title>
+    <title>Changara Muslim Youth Self Help Group (CMY) | Busia County, Kenya</title>
+    
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cmy: {
+                            green: '#0f5132',
+                            darkgreen: '#0a3822',
+                            lightgreen: '#e8f5e9',
+                            gold: '#d4af37',
+                            goldhover: '#b89628',
+                            dark: '#111827',
+                            slate: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        arabic: ['Amiri', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        :root {
-            --primary: #0f5132;    /* Deep Islamic Green */
-            --accent: #d4af37;     /* Warm Gold */
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --white: #ffffff;
-            --gray: #64748b;
+        html {
+            scroll-behavior: smooth;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(10, 56, 34, 0.92) 0%, rgba(17, 24, 39, 0.88) 100%);
         }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--dark);
-            background-color: var(--light);
-            line-height: 1.6;
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fef08a 0%, #d4af37 50%, #9a7b1c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
-        /* Navigation */
-        nav {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-        }
-
-        nav .logo {
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-
-        nav ul a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        nav ul a:hover {
-            color: var(--accent);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(15, 81, 50, 0.88), rgba(15, 81, 50, 0.88)), url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-            color: var(--white);
-            text-align: center;
-            padding: 6rem 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 650px;
-            margin: 0 auto 2rem;
-            color: #e2e8f0;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--dark);
-            padding: 0.8rem 1.8rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: transform 0.2s, background-color 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #b89628;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-            margin-left: 0.5rem;
-        }
-
-        .btn-outline:hover {
-            background-color: var(--accent);
-            color: var(--dark);
-        }
-
-        /* Container & Sections */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray);
-            margin-bottom: 3rem;
-        }
-
-        /* Grid Layout */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary);
-        }
-
-        .card h3 {
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-        }
-
-        /* Callout Box */
-        .callout-box {
-            background: #e8f5e9;
-            border-left: 5px solid var(--primary);
-            padding: 1.5rem;
-            border-radius: 4px;
-            margin-top: 2rem;
-        }
-
-        .callout-box h4 {
-            color: var(--primary);
-            font-family: 'Amiri', serif;
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Form */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        form input, form textarea, form select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-family: inherit;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 3rem;
-        }
-
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 1rem; }
-            .hero h1 { font-size: 2rem; }
+        .gold-border {
+            border-image: linear-gradient(to right, #d4af37, #fef08a, #d4af37) 1;
         }
     </style>
 </head>
-<body>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-cmy-gold selection:text-cmy-dark">
 
-    <!-- Header / Nav -->
-    <nav>
-        <div class="logo">Changara Muslim Youth</div>
-        <ul>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#activities">Pillars & Activities</a></li>
-            <li><a href="#reminders">Reminders</a></li>
-            <li><a href="#join">Get Involved</a></li>
-        </ul>
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-40 bg-cmy-darkgreen text-white shadow-xl border-b border-cmy-gold/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                
+                <!-- Logo & Group Title -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <img id="nav-logo" src="logo.png" alt="CMY Logo" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/120x120/111827/d4af37?text=CMY+Logo';" 
+                         class="h-12 w-12 rounded-full border-2 border-cmy-gold object-cover shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <div>
+                        <span class="block text-lg font-bold tracking-tight text-white group-hover:text-cmy-gold transition-colors">
+                            Changara Muslim Youth
+                        </span>
+                        <span class="block text-xs font-medium text-cmy-gold tracking-widest uppercase">
+                            Self Help Group
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                    <a href="#about" class="hover:text-cmy-gold transition-colors py-1">About Us</a>
+                    <a href="#pillars" class="hover:text-cmy-gold transition-colors py-1">Core Pillars</a>
+                    <a href="#gallery" class="hover:text-cmy-gold transition-colors py-1">Photo Gallery</a>
+                    <a href="#join" class="hover:text-cmy-gold transition-colors py-1">Get Involved</a>
+                    <a href="https://wa.me/254700000000?text=Assalamu%20Alaikum,%20I%20would%20like%20to%20know%20more%20about%20Changara%20Muslim%20Youth%20Group" 
+                       target="_blank" 
+                       class="bg-cmy-gold hover:bg-cmy-goldhover text-cmy-dark px-4 py-2 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>WhatsApp Us</span>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-md text-slate-200 hover:text-cmy-gold focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cmy-dark border-t border-cmy-gold/20 px-4 pt-3 pb-6 space-y-3">
+            <a href="#about" class="block text-slate-200 hover:text-cmy-gold py-2 font-medium">About Us</a>
+            <a href="#pillars" class="block text-slate-200 hover:text-cmy-gold py-2 font-medium">Core Pillars</a>
+            <a href="#gallery" class="block text-slate-200 hover:text-cmy-gold py-2 font-medium">Photo Gallery</a>
+            <a href="#join" class="block text-slate-200 hover:text-cmy-gold py-2 font-medium">Get Involved</a>
+            <a href="https://wa.me/254700000000?text=Assalamu%20Alaikum,%20I%20would%20like%20to%20know%20more%20about%20Changara%20Muslim%20Youth%20Group" 
+               target="_blank" 
+               class="block w-full text-center bg-cmy-gold text-cmy-dark py-2.5 rounded-lg font-bold shadow-md">
+                <i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp Direct
+            </a>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <h1>Changara Muslim Youth Group</h1>
-        <p>Empowering youth through faith, brotherhood, community development, and education in Changara, Busia County.</p>
-        <a href="#join" class="btn">Join Our Group</a>
-        <a href="https://www.facebook.com/changara.muslimsyouths.5/" target="_blank" class="btn btn-outline">Visit Facebook Page</a>
+    <!-- Hero Banner Section -->
+    <header class="relative bg-cmy-dark text-white overflow-hidden min-h-[580px] flex items-center">
+        <!-- Background Overlay with Texture -->
+        <div class="absolute inset-0 hero-overlay z-10"></div>
+        <img src="photo3.jpg" alt="Youth Gathering" 
+             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1600&q=80';"
+             class="absolute inset-0 w-full h-full object-cover object-center filter blur-[2px] opacity-40">
+
+        <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+            
+            <!-- Logo Icon Badge -->
+            <div class="mb-6 inline-block">
+                <img src="logo.png" alt="CMY Emblem" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/150x150/111827/d4af37?text=CMY';"
+                     class="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-full border-4 border-cmy-gold shadow-2xl object-cover">
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 leading-tight">
+                Changara Muslim Youth <br class="hidden sm:inline">
+                <span class="gold-gradient-text">Self Help Group</span>
+            </h1>
+
+            <p class="font-arabic text-2xl text-cmy-gold my-3">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+
+            <p class="text-lg sm:text-xl text-slate-200 max-w-3xl mx-auto font-light leading-relaxed mb-8">
+                Empowering Youth through Faith, Education, Unity & Self-Reliance in Teso North Sub-County, Busia County.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#join" class="w-full sm:w-auto bg-cmy-gold hover:bg-cmy-goldhover text-cmy-dark font-bold px-8 py-3.5 rounded-lg transition-all transform hover:-translate-y-0.5 shadow-lg text-center">
+                    <i class="fa-solid fa-user-plus mr-2"></i> Join Our Group
+                </a>
+                <a href="https://www.facebook.com/changara.muslimsyouths.5/" target="_blank" 
+                   class="w-full sm:w-auto border-2 border-cmy-gold text-cmy-gold hover:bg-cmy-gold hover:text-cmy-dark font-semibold px-8 py-3.5 rounded-lg transition-all text-center flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-facebook text-xl"></i>
+                    <span>Visit Facebook Page</span>
+                </a>
+            </div>
+        </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="container">
-        <h2 class="section-title">Who We Are</h2>
-        <p class="section-subtitle">Building a strong, unified, and self-reliant Muslim youth community.</p>
-
-        <div class="grid-3">
-            <div class="card">
-                <h3>🕌 Faith & Guidance</h3>
-                <p>Spreading Islamic principles, moral values, and brotherhood to encourage righteousness and kindness across our local area.</p>
+    <!-- About & Spiritual Core -->
+    <section id="about" class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-cmy-green font-bold uppercase tracking-wider text-sm">Who We Are</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mt-2">United in Faith and Community Progress</h2>
+                <div class="w-20 h-1 bg-cmy-gold mx-auto mt-4 rounded-full"></div>
             </div>
-            <div class="card">
-                <h3>🌱 Youth Empowerment</h3>
-                <p>Creating social and economic opportunities, skill-building initiatives, and peer support to build self-reliance.</p>
-            </div>
-            <div class="card">
-                <h3>🤝 Community Support</h3>
-                <p>Participating in welfare, charity, community service, and working hand-in-hand with residents in Teso North and Busia County.</p>
-            </div>
-        </div>
 
-        <div class="callout-box">
-            <h4>"Jummah Mubarak & Community Unity"</h4>
-            <p><em>"Spread goodness, strengthen brotherhood, and be a positive force in your community. Every small act of kindness is charity."</em></p>
-        </div>
-    </section>
-
-    <!-- Key Activities -->
-    <section id="activities" style="background: #ffffff;">
-        <div class="container">
-            <h2 class="section-title">Our Focus Areas</h2>
-            <p class="section-subtitle">How we serve our members and society.</p>
-            
-            <div class="grid-3">
-                <div class="card">
-                    <h3>Islamic Education & Reminders</h3>
-                    <p>Regular Halaqas, Jummah reminders, and sessions focused on character building and sound Islamic ethics.</p>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <p class="text-slate-700 text-lg leading-relaxed">
+                        <strong>Changara Muslim Youth Self Help Group (CMY)</strong> is a dedicated community-based organization located in Changara, Teso North Sub-County, Busia County, Kenya. 
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">
+                        We bring together Muslim youth and community members to foster spiritual growth, economic self-reliance, youth mentorship, and local development. Through group discussions, Madrasa support, local initiatives, and brotherhood, we strive to build a peaceful and prosperous future.
+                    </p>
+                    
+                    <div class="p-4 bg-cmy-lightgreen border-l-4 border-cmy-green rounded-r-lg space-y-1">
+                        <p class="font-semibold text-cmy-darkgreen">📍 Location:</p>
+                        <p class="text-slate-700 text-sm">Changara Division, Teso North Sub-County, Busia County, Kenya</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Economic & Skill Initiatives</h3>
-                    <p>Promoting group savings, entrepreneurship awareness, and vocational development to combat youth unemployment.</p>
-                </div>
-                <div class="card">
-                    <h3>Social Welfare & Outreach</h3>
-                    <p>Visiting the sick, supporting community programs, and fostering peaceful coexistence within Changara Division.</p>
+
+                <!-- Callout Box / Quran Verse -->
+                <div class="bg-cmy-dark text-white p-8 rounded-2xl shadow-xl relative overflow-hidden border border-cmy-gold/30">
+                    <div class="absolute -right-6 -bottom-6 opacity-10 text-cmy-gold text-9xl">
+                        <i class="fa-solid fa-mosque"></i>
+                    </div>
+                    <p class="font-arabic text-2xl text-cmy-gold text-right mb-4 leading-loose">
+                        وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ
+                    </p>
+                    <p class="text-slate-200 text-lg italic mb-4">
+                        "And cooperate in righteousness and piety, but do not cooperate in sin and aggression."
+                    </p>
+                    <p class="text-cmy-gold text-sm font-semibold">— Surah Al-Ma'idah (5:2)</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact / Join Form -->
-    <section id="join" class="container">
-        <h2 class="section-title">Get Involved</h2>
-        <p class="section-subtitle">Are you a youth in Changara or a supporter wanting to partner with us?</p>
+    <!-- Core Pillars Section -->
+    <section id="pillars" class="py-16 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-cmy-green font-bold uppercase tracking-wider text-sm">What We Do</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mt-2">Our Key Pillars & Activities</h2>
+                <div class="w-20 h-1 bg-cmy-gold mx-auto mt-4 rounded-full"></div>
+            </div>
 
-        <form action="#" method="POST" onsubmit="alert('Thank you for reaching out! We will get back to you shortly.'); return false;">
-            <div>
-                <label style="display:block; margin-bottom: 0.5rem; font-weight:600;">Full Name</label>
-                <input type="text" placeholder="Your full name" required>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Pillar 1 -->
+                <div class="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow border-t-4 border-cmy-green flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-cmy-lightgreen text-cmy-green rounded-lg flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-book-quran"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Islamic Guidance & Youth Halaqas</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Organizing regularly scheduled halaqa study circles, Jummah reminders, and religious guidance to instill strong moral values and authentic Islamic knowledge among youth.
+                        </p>
+                    </div>
+                    <span class="text-cmy-green font-semibold text-xs uppercase tracking-wider">Spiritual Growth</span>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow border-t-4 border-cmy-gold flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-amber-50 text-cmy-goldhover rounded-lg flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Youth Empowerment & Self-Help</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Promoting economic independence through self-help savings schemes, entrepreneurship discussions, skill development workshops, and youth leadership initiatives.
+                        </p>
+                    </div>
+                    <span class="text-cmy-goldhover font-semibold text-xs uppercase tracking-wider">Economic Progress</span>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow border-t-4 border-cmy-green flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-cmy-lightgreen text-cmy-green rounded-lg flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-people-roof"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Community Welfare & Education</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Supporting local Madrasas, mentoring younger children, organizing charitable outreaches, and promoting peaceful coexistence across Changara Division.
+                        </p>
+                    </div>
+                    <span class="text-cmy-green font-semibold text-xs uppercase tracking-wider">Community Service</span>
+                </div>
             </div>
-            <div>
-                <label style="display:block; margin-bottom: 0.5rem; font-weight:600;">Phone Number / WhatsApp</label>
-                <input type="tel" placeholder="+254 7XX XXX XXX" required>
+        </div>
+    </section>
+
+    <!-- Interactive Photo Gallery -->
+    <section id="gallery" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-cmy-green font-bold uppercase tracking-wider text-sm">Group Life</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mt-2">Community Gallery</h2>
+                <p class="text-slate-600 mt-2">A glimpse into our youth halaqa meetings, Madrasa gatherings, and community events.</p>
+                <div class="w-20 h-1 bg-cmy-gold mx-auto mt-4 rounded-full"></div>
             </div>
-            <div>
-                <label style="display:block; margin-bottom: 0.5rem; font-weight:600;">How would you like to engage?</label>
-                <select>
-                    <option>Become a Youth Member</option>
-                    <option>Partner / Sponsor</option>
-                    <option>Volunteer</option>
-                    <option>General Inquiry</option>
-                </select>
+
+            <!-- Image Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Image Item 1 -->
+                <div class="group relative bg-slate-900 rounded-xl overflow-hidden shadow-md cursor-pointer hover:shadow-2xl transition-all"
+                     onclick="openLightbox('photo1.jpg', 'Youth Halaqa & Mosque Discussion - Group members gathering inside the mosque for discussions.')">
+                    <img src="photo1.jpg" alt="Youth Halaqa Session" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590076175571-4b5459efb08c?auto=format&fit=crop&w=800&q=80';"
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
+                        <span class="text-cmy-gold text-xs font-semibold uppercase">Youth Gathering</span>
+                        <p class="text-white text-sm font-medium">Mosque Halaqa & Planning</p>
+                    </div>
+                </div>
+
+                <!-- Image Item 2 -->
+                <div class="group relative bg-slate-900 rounded-xl overflow-hidden shadow-md cursor-pointer hover:shadow-2xl transition-all"
+                     onclick="openLightbox('photo2.jpg', 'Madrasa Learning & Mentorship - Interactive session with children in Changara.')">
+                    <img src="photo2.jpg" alt="Madrasa Learning Session" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80';"
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
+                        <span class="text-cmy-gold text-xs font-semibold uppercase">Education</span>
+                        <p class="text-white text-sm font-medium">Youth Mentorship Session</p>
+                    </div>
+                </div>
+
+                <!-- Image Item 3 -->
+                <div class="group relative bg-slate-900 rounded-xl overflow-hidden shadow-md cursor-pointer hover:shadow-2xl transition-all"
+                     onclick="openLightbox('photo3.jpg', 'Group Consultation - Youth leaders sitting together in circle format.')">
+                    <img src="photo3.jpg" alt="Group Consultation" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80';"
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
+                        <span class="text-cmy-gold text-xs font-semibold uppercase">Brotherhood</span>
+                        <p class="text-white text-sm font-medium">Group Discussion Circle</p>
+                    </div>
+                </div>
+
+                <!-- Image Item 4 -->
+                <div class="group relative bg-slate-900 rounded-xl overflow-hidden shadow-md cursor-pointer hover:shadow-2xl transition-all"
+                     onclick="openLightbox('photo4.jpg', 'Community Gathering - Women and youth assembled outside the community venue.')">
+                    <img src="photo4.jpg" alt="Community Outdoor Gathering" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80';"
+                         class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
+                        <span class="text-cmy-gold text-xs font-semibold uppercase">Outreach</span>
+                        <p class="text-white text-sm font-medium">Community Assembly</p>
+                    </div>
+                </div>
+
             </div>
-            <div>
-                <label style="display:block; margin-bottom: 0.5rem; font-weight:600;">Message</label>
-                <textarea rows="4" placeholder="Tell us a bit about yourself or how we can assist..."></textarea>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-cmy-gold focus:outline-none">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl max-h-[90vh] flex flex-col items-center">
+            <img id="lightbox-img" src="" class="max-h-[75vh] w-auto object-contain rounded-lg shadow-2xl border-2 border-cmy-gold">
+            <p id="lightbox-caption" class="text-white mt-4 text-center text-sm font-light px-4 max-w-2xl"></p>
+        </div>
+    </div>
+
+    <!-- Get Involved Section -->
+    <section id="join" class="py-16 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Contact & WhatsApp Details -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-cmy-green font-bold uppercase tracking-wider text-sm">Connect With Us</span>
+                        <h2 class="text-3xl font-bold text-slate-900 mt-2">Get Involved & Support</h2>
+                        <div class="w-16 h-1 bg-cmy-gold mt-3 rounded-full"></div>
+                    </div>
+
+                    <p class="text-slate-600 leading-relaxed">
+                        Whether you are a youth looking to join our group activities, a community member seeking partnership, or a well-wisher offering support, we warmly welcome you!
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-cmy-green text-cmy-gold rounded-lg flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Location</h4>
+                                <p class="text-slate-600 text-sm">Changara, Teso North Sub-County, Busia County, Kenya</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-cmy-green text-cmy-gold rounded-lg flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Facebook Page</h4>
+                                <a href="https://www.facebook.com/changara.muslimsyouths.5/" target="_blank" class="text-cmy-green font-medium text-sm hover:underline">
+                                    Changara Muslims Youth
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-emerald-600 text-white rounded-lg flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Direct WhatsApp</h4>
+                                <a href="https://wa.me/254700000000?text=Assalamu%20Alaikum" target="_blank" class="text-emerald-600 font-medium text-sm hover:underline">
+                                    Chat with Group Coordinator
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Callout Box -->
+                    <div class="p-6 bg-cmy-dark text-white rounded-xl border-l-4 border-cmy-gold">
+                        <h4 class="font-bold text-cmy-gold text-lg mb-1">Join Our Group Meetings</h4>
+                        <p class="text-slate-300 text-sm">
+                            We regularly meet for halaqa discussions, savings group reviews, and project planning in Changara.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7 bg-white rounded-2xl shadow-xl p-8 border border-slate-200">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6">Send Us a Message</h3>
+                    
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Full Name</label>
+                            <input type="text" required placeholder="e.g. Ibrahim Omar" 
+                                   class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-cmy-green focus:border-cmy-green outline-none transition">
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Phone Number (WhatsApp)</label>
+                                <input type="tel" required placeholder="+254 7XX XXX XXX" 
+                                       class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-cmy-green focus:border-cmy-green outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Interest / Purpose</label>
+                                <select class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-cmy-green focus:border-cmy-green outline-none transition">
+                                    <option>Become a Youth Member</option>
+                                    <option>Community Partnership</option>
+                                    <option>Sponsor / Support Project</option>
+                                    <option>General Inquiry</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Message</label>
+                            <textarea rows="4" required placeholder="Write your message or inquiry here..." 
+                                      class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-cmy-green focus:border-cmy-green outline-none transition"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-cmy-green hover:bg-cmy-darkgreen text-white font-bold py-3.5 rounded-lg transition-all shadow-md">
+                            Submit Message
+                        </button>
+                    </form>
+
+                    <!-- Success Message Container -->
+                    <div id="form-success" class="hidden mt-4 p-4 bg-emerald-100 text-emerald-800 rounded-lg text-center font-medium">
+                        <i class="fa-solid fa-circle-check text-xl mr-2"></i>
+                        Thank you! Your message has been received. We will get back to you shortly.
+                    </div>
+                </div>
+
             </div>
-            <button type="submit" class="btn" style="border:none; cursor:pointer; width:100%;">Submit Message</button>
-        </form>
+        </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Changara Muslim Youth Group. Changara, Teso North Sub-County, Busia County, Kenya.</p>
-        <p style="margin-top: 0.5rem;">Connect with us on <a href="https://www.facebook.com/changara.muslimsyouths.5/" target="_blank">Facebook</a></p>
+    <footer class="bg-cmy-dark text-slate-300 py-12 border-t-2 border-cmy-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                
+                <div class="flex items-center space-x-3">
+                    <img src="logo.png" alt="CMY Logo" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/80x80/111827/d4af37?text=CMY';"
+                         class="h-10 w-10 rounded-full border border-cmy-gold object-cover">
+                    <div>
+                        <p class="font-bold text-white">Changara Muslim Youth Self Help Group</p>
+                        <p class="text-xs text-cmy-gold">Teso North Sub-County, Busia County, Kenya</p>
+                    </div>
+                </div>
+
+                <p class="text-sm text-slate-400">
+                    &copy; 2026 Changara Muslim Youth. All rights reserved.
+                </p>
+
+                <div class="flex space-x-4 text-xl">
+                    <a href="https://www.facebook.com/changara.muslimsyouths.5/" target="_blank" class="hover:text-cmy-gold transition-colors">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://wa.me/254700000000" target="_blank" class="hover:text-cmy-gold transition-colors">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
     </footer>
 
+    <script>
+        // Mobile Navigation Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Interactive Lightbox Functionality
+        function openLightbox(src, caption) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+
+            lightboxImg.src = src;
+            lightboxCaption.textContent = caption;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+        }
+
+        // Close lightbox on clicking dark backdrop
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') {
+                closeLightbox();
+            }
+        });
+
+        // Contact Form Submission Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            const successMsg = document.getElementById('form-success');
+
+            form.classList.add('opacity-50', 'pointer-events-none');
+            setTimeout(() => {
+                form.reset();
+                form.classList.remove('opacity-50', 'pointer-events-none');
+                successMsg.classList.remove('hidden');
+                setTimeout(() => successMsg.classList.add('hidden'), 5000);
+            }, 600);
+        }
+    </script>
 </body>
 </html>
+```
+
+---
+
+### How to add your exact uploaded images to GitHub:
+
+To make your uploaded photos appear on your website:
+
+1. In your GitHub repository, upload your images with these **exact file names**:
+   * **Logo:** Name it `logo.png`
+   * **Mosque Halaqa photo:** Name it `photo1.jpg`
+   * **Children Madrasa photo:** Name it `photo2.jpg`
+   * **Circle discussion photo:** Name it `photo3.jpg`
+   * **Outdoor group gathering photo:** Name it `photo4.jpg`
+
+2. Place them in the same main folder as your `index.html` file. As soon as you commit the changes on GitHub, the website will automatically load your custom images!
