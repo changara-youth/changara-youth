@@ -3,1185 +3,681 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Changara Muslim Youth Group (CMY) - Busia, Kenya</title>
+    <title>Changara Muslim Youth Group (CMY) | Official Portal & Gallery</title>
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Inter & Amiri for Islamic Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Custom Configuration -->
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
                         emerald: {
-                            850: '#054734',
-                            950: '#022c20',
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
                         },
                         amber: {
-                            450: '#f19e0c',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        arabic: ['Amiri', 'serif'],
+                        heading: ['Outfit', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
+
     <style>
-        .arabic-text {
-            font-family: 'Amiri', serif;
-        }
-        .hero-gradient {
-            background: linear-gradient(180deg, rgba(2, 44, 32, 0.75) 0%, rgba(2, 44, 32, 0.90) 70%, rgba(2, 44, 32, 0.98) 100%);
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
-        .glass-card-dark {
-            background: rgba(5, 71, 52, 0.85);
-            backdrop-filter: blur(12px);
-        }
-        .gallery-card:hover .gallery-overlay {
-            opacity: 1;
-        }
-        /* Custom scrollbar */
+        /* Custom scrollbar and ambient UI utilities */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #f1f5f9;
+            background: #0f172a;
         }
         ::-webkit-scrollbar-thumb {
             background: #059669;
             border-radius: 4px;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #047857;
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.95) 100%);
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-emerald-600 selection:text-white min-h-screen flex flex-col">
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white">
 
     <!-- Navigation Header -->
-    <header class="sticky top-0 z-40 bg-emerald-950/95 backdrop-blur-md text-white border-b border-emerald-800/50 shadow-lg">
+    <header class="sticky top-0 z-40 w-full glass-card border-b border-slate-800 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Brand Logo & Name -->
-                <a href="#home" class="flex items-center gap-3 group">
-                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-500 to-emerald-400 p-0.5 shadow-md transition transform group-hover:scale-105">
-                        <div class="w-full h-full bg-emerald-950 rounded-full flex items-center justify-center">
-                            <i class="fa-solid font-bold fa-star-and-crescent text-amber-400 text-xl"></i>
-                        </div>
-                    </div>
+                
+                <!-- Logo & Brand Name -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <img src="logo.png" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/100x100/059669/ffffff?text=CMY';" 
+                         alt="CMY Logo" 
+                         class="w-12 h-12 rounded-full border-2 border-emerald-500 object-cover shadow-lg shadow-emerald-900/30 group-hover:scale-105 transition-transform">
                     <div>
-                        <div class="flex items-center gap-2">
-                            <span class="font-extrabold text-xl tracking-tight text-white group-hover:text-amber-400 transition">CMY</span>
-                            <span class="text-xs px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-medium border border-amber-500/30">Busia, Kenya</span>
-                        </div>
-                        <p class="text-xs text-emerald-200/80 font-light hidden sm:block">Changara Muslim Youth Group</p>
+                        <span class="block font-heading font-extrabold text-lg sm:text-xl text-white tracking-wide leading-tight">
+                            CHANGARA <span class="text-emerald-400">MUSLIM</span> YOUTH
+                        </span>
+                        <span class="block text-xs text-slate-400 font-medium tracking-widest uppercase">Unity • Faith • Empowerment</span>
                     </div>
                 </a>
 
                 <!-- Desktop Navigation Links -->
-                <nav class="hidden md:flex items-center space-x-1 lg:space-x-6 text-sm font-medium">
-                    <a href="#home" class="px-3 py-2 text-emerald-100 hover:text-amber-400 transition hover:bg-emerald-900/50 rounded-lg">Home</a>
-                    <a href="#about" class="px-3 py-2 text-emerald-100 hover:text-amber-400 transition hover:bg-emerald-900/50 rounded-lg">About & Leadership</a>
-                    <a href="#donate-section" class="px-3 py-2 text-emerald-100 hover:text-amber-400 transition hover:bg-emerald-900/50 rounded-lg">Support Us</a>
-                    <a href="#gallery" class="px-3 py-2 text-emerald-100 hover:text-amber-400 transition hover:bg-emerald-900/50 rounded-lg">Photo Gallery</a>
-                    <a href="#contact" class="px-3 py-2 text-emerald-100 hover:text-amber-400 transition hover:bg-emerald-900/50 rounded-lg">Contact</a>
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-6 text-sm font-semibold text-slate-300">
+                    <a href="#about" class="px-3 py-2 rounded-lg hover:text-emerald-400 hover:bg-slate-800/60 transition">About Us</a>
+                    <a href="#gallery" class="px-3 py-2 rounded-lg hover:text-emerald-400 hover:bg-slate-800/60 transition">Photo Gallery</a>
+                    <a href="#leadership" class="px-3 py-2 rounded-lg hover:text-emerald-400 hover:bg-slate-800/60 transition">Leadership</a>
+                    <a href="#donate" class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow-md shadow-emerald-900/40 hover:from-emerald-500 hover:to-emerald-400 transition transform hover:-translate-y-0.5">Donate / Support</a>
                 </nav>
 
-                <!-- Action Button & Mobile Menu Toggle -->
-                <div class="flex items-center space-x-3">
-                    <button onclick="openDonateModal()" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-sm shadow-md transition transform hover:-translate-y-0.5 active:translate-y-0">
-                        <i class="fa-solid fa-hand-holding-heart"></i>
-                        <span>Donate M-PESA</span>
-                    </button>
-                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl text-emerald-200 hover:text-white hover:bg-emerald-900 focus:outline-none" aria-label="Toggle Navigation">
-                        <i id="menuIcon" class="fa-solid fa-bars text-xl"></i>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Navigation Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-emerald-950 border-b border-emerald-800/80 px-4 pt-2 pb-6 space-y-2">
-            <a href="#home" onclick="toggleMobileMenu()" class="block px-4 py-2.5 text-base font-medium text-white hover:bg-emerald-900 rounded-lg">Home</a>
-            <a href="#about" onclick="toggleMobileMenu()" class="block px-4 py-2.5 text-base font-medium text-emerald-200 hover:bg-emerald-900 rounded-lg">About & Leadership</a>
-            <a href="#donate-section" onclick="toggleMobileMenu()" class="block px-4 py-2.5 text-base font-medium text-emerald-200 hover:bg-emerald-900 rounded-lg">Support & M-PESA</a>
-            <a href="#gallery" onclick="toggleMobileMenu()" class="block px-4 py-2.5 text-base font-medium text-emerald-200 hover:bg-emerald-900 rounded-lg">Photo Gallery</a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="block px-4 py-2.5 text-base font-medium text-emerald-200 hover:bg-emerald-900 rounded-lg">Contact Us</a>
-            <div class="pt-2">
-                <button onclick="toggleMobileMenu(); openDonateModal()" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-amber-500 text-slate-950 font-bold text-base shadow-md">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                    <span>Donate M-PESA (Paybill 400200)</span>
-                </button>
-            </div>
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-slate-200 font-medium hover:bg-slate-800">About Us</a>
+            <a href="#gallery" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-slate-200 font-medium hover:bg-slate-800">Photo Gallery</a>
+            <a href="#leadership" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-slate-200 font-medium hover:bg-slate-800">Leadership</a>
+            <a href="#donate" class="mobile-nav-link block px-4 py-2.5 rounded-lg bg-emerald-600 text-white text-center font-semibold hover:bg-emerald-500">Donate / Support</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative min-h-[85vh] flex items-center justify-center bg-emerald-950 overflow-hidden">
-        <!-- Background Image Photo 9 -->
+    <!-- Hero Banner Section -->
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-slate-950">
+        <!-- Hero Background Image with Fallback -->
         <div class="absolute inset-0 z-0">
-            <img src="photo9_2.jpg" alt="Changara Islamic Youth Community Sisters and Madrasa Students" class="w-full h-full object-cover object-center transform scale-105 animate-pulse duration-10000" onerror="this.src='https://placehold.co/1200x800/054734/ffffff?text=Changara+Muslim+Youth+Community'">
-            <div class="absolute inset-0 hero-gradient"></div>
+            <img src="photo9.jpg" 
+                 onerror="this.onerror=null; this.src='https://placehold.co/1920x1080/0f172a/10b981?text=Changara+Muslim+Youth+Group';" 
+                 alt="Changara Muslim Youth Community Banner" 
+                 class="w-full h-full object-cover object-center filter brightness-90 transform scale-105 transition-transform duration-10000">
+            <div class="absolute inset-0 hero-overlay"></div>
         </div>
 
-        <!-- Decorative Subtle Islamic Pattern overlay -->
-        <div class="absolute inset-0 z-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:24px_24px]"></div>
-
-        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center text-white">
-            <!-- Badge -->
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-900/80 border border-emerald-700/60 text-amber-300 text-xs sm:text-sm font-semibold mb-6 shadow-inner backdrop-blur-md">
-                <i class="fa-solid fa-location-dot text-amber-400"></i>
-                <span>Changara, Teso North Sub-County, Busia County, Kenya</span>
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-semibold mb-6 animate-pulse">
+                <i class="fa-solid fa-moon"></i>
+                <span>Official Community Portal</span>
             </div>
-
-            <!-- Bismillah Arabic Title -->
-            <p class="arabic-text text-amber-400 text-2xl sm:text-3xl lg:text-4xl mb-3 font-normal opacity-90 tracking-wide">
-                بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
-            </p>
-
-            <!-- Main Heading -->
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6 drop-shadow-md">
-                Empowering Youth Through <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200">Faith, Knowledge</span> & Community Unity
+            
+            <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                Empowering Youth, <br class="hidden sm:inline">
+                <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 bg-clip-text text-transparent">
+                    Building Tomorrow
+                </span>
             </h1>
 
-            <p class="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-emerald-100 font-light leading-relaxed mb-10 opacity-95">
-                Welcome to the official community portal of the <strong>Changara Muslim Youth Group (CMY) / Changara Islamic Youth Community (CIYC)</strong>. Dedicated to nurturing moral leadership, Islamic education, youth empowerment, and economic self-reliance across Teso North.
+            <p class="max-w-2xl mx-auto text-slate-300 text-base sm:text-xl font-light leading-relaxed mb-10">
+                Welcome to the official digital hub of Changara Muslim Youth Group. We are dedicated to youth empowerment, community outreach, educational excellence, and religious cohesion.
             </p>
 
-            <!-- Action Buttons -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-                <a href="#gallery" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold text-base shadow-xl hover:shadow-emerald-600/30 transition transform hover:-translate-y-1 flex items-center justify-center gap-3 border border-emerald-500/40">
-                    <i class="fa-solid fa-images text-amber-300 text-lg"></i>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#gallery" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base shadow-xl shadow-emerald-900/40 hover:-translate-y-0.5 transition flex items-center justify-center space-x-3">
+                    <i class="fa-solid fa-images"></i>
                     <span>Explore Photo Gallery</span>
                 </a>
-                <button onclick="openDonateModal()" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-base shadow-xl hover:shadow-amber-500/30 transition transform hover:-translate-y-1 flex items-center justify-center gap-3">
-                    <i class="fa-solid fa-heart text-slate-950 text-lg"></i>
-                    <span>Support CMY Mission</span>
-                </button>
+                <a href="#donate" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-100 border border-slate-700 font-semibold text-base backdrop-blur-md hover:-translate-y-0.5 transition flex items-center justify-center space-x-3">
+                    <i class="fa-solid fa-hand-holding-heart text-amber-400"></i>
+                    <span>Support Our Projects</span>
+                </a>
             </div>
 
-            <!-- Highlights Stats Bar -->
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
-                <div class="glass-card-dark p-4 rounded-2xl border border-emerald-700/50">
-                    <div class="text-2xl sm:text-3xl font-extrabold text-amber-400">250+</div>
-                    <div class="text-xs sm:text-sm text-emerald-200">Youth & Students Enrolled</div>
+            <!-- Key Quick Stats -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="glass-card p-4 rounded-2xl">
+                    <span class="block font-heading text-2xl sm:text-3xl font-bold text-emerald-400">26+</span>
+                    <span class="text-xs text-slate-400 font-medium">Activity Archives</span>
                 </div>
-                <div class="glass-card-dark p-4 rounded-2xl border border-emerald-700/50">
-                    <div class="text-2xl sm:text-3xl font-extrabold text-amber-400">15+</div>
-                    <div class="text-xs sm:text-sm text-emerald-200">Seminars & Workshops</div>
+                <div class="glass-card p-4 rounded-2xl">
+                    <span class="block font-heading text-2xl sm:text-3xl font-bold text-amber-400">100%</span>
+                    <span class="text-xs text-slate-400 font-medium">Youth Driven</span>
                 </div>
-                <div class="glass-card-dark p-4 rounded-2xl border border-emerald-700/50">
-                    <div class="text-2xl sm:text-3xl font-extrabold text-amber-400">100%</div>
-                    <div class="text-xs sm:text-sm text-emerald-200">Community Driven</div>
+                <div class="glass-card p-4 rounded-2xl">
+                    <span class="block font-heading text-2xl sm:text-3xl font-bold text-emerald-400">Active</span>
+                    <span class="text-xs text-slate-400 font-medium">Community Outreach</span>
                 </div>
-                <div class="glass-card-dark p-4 rounded-2xl border border-emerald-700/50">
-                    <div class="text-2xl sm:text-3xl font-extrabold text-amber-400">Teso North</div>
-                    <div class="text-xs sm:text-sm text-emerald-200">Busia County, Kenya</div>
+                <div class="glass-card p-4 rounded-2xl">
+                    <span class="block font-heading text-2xl sm:text-3xl font-bold text-teal-400">Changara</span>
+                    <span class="text-xs text-slate-400 font-medium">Local Community</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About & Leadership Section -->
-    <section id="about" class="py-20 bg-slate-50 relative">
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-900 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-2">Leadership & Vision</h2>
-                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Guiding the Next Generation in Changara</p>
-                <div class="w-20 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+                <h2 class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2">Who We Are</h2>
+                <p class="font-heading text-3xl sm:text-4xl font-extrabold text-white">United for Faith, Growth, and Progress</p>
+                <div class="w-16 h-1 bg-emerald-500 mx-auto mt-4 rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-                <!-- Leadership Card with Chairman Photo -->
-                <div class="lg:col-span-5 bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 flex flex-col justify-between transform transition hover:shadow-2xl">
-                    <div class="relative h-80 bg-slate-800 overflow-hidden">
-                        <img src="chairman_2.jpg" alt="CMY Chairman Addressing Youth Seminar" class="w-full h-full object-cover object-top hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x800/054734/ffffff?text=CMY+Chairman'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-                        <div class="absolute bottom-4 left-6 right-6 text-white">
-                            <span class="inline-block px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-xs font-extrabold uppercase mb-2">Executive Leadership</span>
-                            <h3 class="text-xl font-bold">Office of the Chairman</h3>
-                            <p class="text-xs text-amber-200">Changara Muslim Youth Group (CMY)</p>
-                        </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl hover:border-emerald-500/50 transition">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-2xl mb-6">
+                        <i class="fa-solid fa-hands-holding-child"></i>
                     </div>
-                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between bg-emerald-950 text-white">
-                        <blockquote class="text-slate-200 text-sm sm:text-base italic leading-relaxed mb-6 relative">
-                            <i class="fa-solid fa-quote-left text-3xl text-amber-500/30 absolute -top-3 -left-2"></i>
-                            <p class="relative z-10 pl-6">
-                                "Our mission in Teso North is to equip our young men and women with authentic Islamic knowledge, moral resilience, practical skills, and economic independence. Through unity and continuous learning, we build a peaceful and prosperous community."
-                            </p>
-                        </blockquote>
-                        <div class="border-t border-emerald-800/80 pt-4 flex items-center justify-between">
-                            <div>
-                                <p class="font-bold text-amber-400 text-sm">Message from CMY Leadership</p>
-                                <p class="text-xs text-emerald-300">Changara Mosque, Busia County</p>
-                            </div>
-                            <i class="fa-solid fa-bullhorn text-amber-400 text-xl"></i>
-                        </div>
-                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-3">Youth Empowerment</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Fostering leadership, skill development, and self-reliance among young Muslims to contribute meaningfully to society.
+                    </p>
                 </div>
 
-                <!-- Vision, Mission & Core Pillars -->
-                <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
-                    <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-lg border border-slate-100">
-                        <h3 class="text-2xl font-bold text-emerald-900 mb-4 flex items-center gap-3">
-                            <span class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg"><i class="fa-solid fa-compass"></i></span>
-                            Our Core Vision & Community Goals
-                        </h3>
-                        <p class="text-slate-600 leading-relaxed text-sm sm:text-base mb-6">
-                            The Changara Muslim Youth Group operates at the heart of Changara, Teso North Sub-County. We foster an inclusive environment where children, young adults, and women can access educational mentorship, spiritual growth (Halaqa), agricultural training, and humanitarian support.
-                        </p>
-
-                        <!-- 4 Core Pillars Grid -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100 hover:bg-emerald-50 transition">
-                                <div class="text-emerald-700 font-bold mb-1 flex items-center gap-2">
-                                    <i class="fa-solid fa-book-quran text-amber-500"></i>
-                                    <span>Islamic Knowledge</span>
-                                </div>
-                                <p class="text-xs text-slate-600">Daily Madrasa, weekend Quranic studies, Tajweed, and jurisprudence workshops for all ages.</p>
-                            </div>
-                            <div class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100 hover:bg-emerald-50 transition">
-                                <div class="text-emerald-700 font-bold mb-1 flex items-center gap-2">
-                                    <i class="fa-solid fa-seedling text-amber-500"></i>
-                                    <span>Agriculture & Self-Reliance</span>
-                                </div>
-                                <p class="text-xs text-slate-600">Empowering youth through communal farming projects, maize cultivation, and sustainable agribusiness.</p>
-                            </div>
-                            <div class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100 hover:bg-emerald-50 transition">
-                                <div class="text-emerald-700 font-bold mb-1 flex items-center gap-2">
-                                    <i class="fa-solid fa-users text-amber-500"></i>
-                                    <span>Sisters & Women Forum</span>
-                                </div>
-                                <p class="text-xs text-slate-600">Dedicated platforms for sisters' education, family rights (Haki ya Wazazi), and craft workshops.</p>
-                            </div>
-                            <div class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100 hover:bg-emerald-50 transition">
-                                <div class="text-emerald-700 font-bold mb-1 flex items-center gap-2">
-                                    <i class="fa-solid fa-hand-holding-heart text-amber-500"></i>
-                                    <span>Community Welfare</span>
-                                </div>
-                                <p class="text-xs text-slate-600">Charitable outreach, communal meals, medical support, and youth mentorship circles.</p>
-                            </div>
-                        </div>
+                <div class="glass-card p-8 rounded-2xl hover:border-emerald-500/50 transition">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 text-2xl mb-6">
+                        <i class="fa-solid fa-people-roof"></i>
                     </div>
-
-                    <!-- Quote banner -->
-                    <div class="bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl p-6 text-slate-950 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
-                        <div class="flex items-center gap-4">
-                            <i class="fa-solid fa-hands-holding-circle text-4xl text-slate-900/80"></i>
-                            <div>
-                                <h4 class="font-bold text-lg leading-snug">Empower a Youth, Transform a Community</h4>
-                                <p class="text-xs text-slate-900 font-medium">Support our ongoing educational and infrastructure development projects in Changara.</p>
-                            </div>
-                        </div>
-                        <button onclick="openDonateModal()" class="px-5 py-2.5 rounded-xl bg-slate-950 text-amber-400 font-bold text-sm hover:bg-slate-900 transition whitespace-nowrap">
-                            Support Today
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- M-PESA Donation Banner Section -->
-    <section id="donate-section" class="py-20 bg-emerald-950 text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:20px_20px]"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 text-xs font-bold uppercase tracking-wider mb-3">Support Our Cause</span>
-                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">Official M-PESA Paybill Donation</h2>
-                <p class="text-emerald-200 mt-4 text-base sm:text-lg">Your donations directly fund Madrasa books, youth seminars, mosque maintenance, and emergency community welfare in Changara.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <!-- Donation Poster Image Display -->
-                <div class="lg:col-span-6 flex justify-center">
-                    <div class="relative group max-w-md rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-500/30 bg-slate-900">
-                        <img src="donation paybill_2.jpg" alt="Changara Muslim Youth M-PESA Donation Paybill 400200 Account 55549" class="w-full h-auto object-contain transform group-hover:scale-102 transition duration-300" onerror="this.src='https://placehold.co/600x600/054734/ffffff?text=M-PESA+Paybill+400200'">
-                        <div class="absolute top-4 right-4 bg-emerald-900/90 text-amber-400 font-bold text-xs px-3 py-1 rounded-full border border-amber-500/50">
-                            Verified Official
-                        </div>
-                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-3">Community Support</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Organizing charity drives, educational workshops, and community maintenance projects to nurture brotherhood and solidarity.
+                    </p>
                 </div>
 
-                <!-- Interactive Paybill Breakdown Box -->
-                <div class="lg:col-span-6 bg-emerald-900/80 rounded-3xl p-6 sm:p-10 border border-emerald-700/60 shadow-xl backdrop-blur-md">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 rounded-2xl bg-amber-500 flex items-center justify-center text-slate-950 text-2xl font-black">
-                            <i class="fa-solid fa-mobile-screen-button"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">Paybill Payment Details</h3>
-                            <p class="text-xs text-amber-300 font-medium">M-PESA / Airtel Money / Co-operative Bank</p>
-                        </div>
+                <div class="glass-card p-8 rounded-2xl hover:border-emerald-500/50 transition">
+                    <div class="w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-400 text-2xl mb-6">
+                        <i class="fa-solid fa-book-quran"></i>
                     </div>
-
-                    <!-- Paybill Field 1 -->
-                    <div class="mb-4 bg-emerald-950/80 p-4 rounded-2xl border border-emerald-800 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs text-emerald-300 font-medium uppercase tracking-wider">Paybill Number</p>
-                            <p class="text-2xl sm:text-3xl font-black text-amber-400 tracking-wider">400200</p>
-                        </div>
-                        <button onclick="copyText('400200', 'Paybill Number 400200')" class="px-4 py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-bold transition flex items-center gap-2 border border-emerald-600">
-                            <i class="fa-regular fa-copy"></i>
-                            <span>Copy Paybill</span>
-                        </button>
-                    </div>
-
-                    <!-- Account Field 2 -->
-                    <div class="mb-4 bg-emerald-950/80 p-4 rounded-2xl border border-emerald-800 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs text-emerald-300 font-medium uppercase tracking-wider">Account Number</p>
-                            <p class="text-2xl sm:text-3xl font-black text-white tracking-wider">55549</p>
-                        </div>
-                        <button onclick="copyText('55549', 'Account Number 55549')" class="px-4 py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-bold transition flex items-center gap-2 border border-emerald-600">
-                            <i class="fa-regular fa-copy"></i>
-                            <span>Copy Account</span>
-                        </button>
-                    </div>
-
-                    <!-- Business Name Field 3 -->
-                    <div class="mb-6 bg-emerald-950/80 p-4 rounded-2xl border border-emerald-800">
-                        <p class="text-xs text-emerald-300 font-medium uppercase tracking-wider">Business Name</p>
-                        <p class="text-lg font-bold text-white">CHANGARA MUSLIM YOUTH</p>
-                    </div>
-
-                    <!-- Instructions -->
-                    <div class="space-y-2 text-xs text-emerald-200 mb-6 bg-emerald-950/40 p-4 rounded-xl">
-                        <p class="font-bold text-amber-300"><i class="fa-solid fa-circle-info mr-1"></i> How to donate via M-PESA:</p>
-                        <ol class="list-decimal list-inside space-y-1 text-emerald-200 pl-1">
-                            <li>Go to M-PESA menu & select <strong>Lipa na M-PESA</strong> &rarr; <strong>Paybill</strong></li>
-                            <li>Enter Business No: <strong class="text-white">400200</strong></li>
-                            <li>Enter Account No: <strong class="text-white">55549</strong></li>
-                            <li>Enter Amount & your M-PESA PIN</li>
-                        </ol>
-                    </div>
-
-                    <button onclick="openDonateModal()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-base shadow-lg transition flex items-center justify-center gap-3">
-                        <i class="fa-solid fa-heart"></i>
-                        <span>Open Interactive Payment Guide</span>
-                    </button>
+                    <h3 class="font-heading text-xl font-bold text-white mb-3">Islamic Values</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Promoting Islamic teachings, ethics, peace, and mutual respect across the entire Changara community and surrounding regions.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Photo Gallery Section -->
-    <section id="gallery" class="py-20 bg-slate-100">
+    <section id="gallery" class="py-20 bg-slate-950 relative border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2">Visual Catalog</span>
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">CMY Photo Gallery</h2>
-                <p class="text-slate-600 mt-3 text-base sm:text-lg">Explore our vibrant community initiatives, youth seminars, madrasa graduations, and development activities in Changara.</p>
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2">Our Activities</h2>
+                    <p class="font-heading text-3xl sm:text-4xl font-extrabold text-white">Community Photo Gallery</p>
+                </div>
+                <p class="text-slate-400 text-sm max-w-md mt-4 md:mt-0">
+                    Browse photos capturing our recent youth events, meetings, Islamic celebrations, and development initiatives.
+                </p>
             </div>
 
-            <!-- Search Bar & Controls -->
-            <div class="max-w-2xl mx-auto mb-8">
-                <div class="relative">
-                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-lg"></i>
-                    <input type="text" id="gallerySearchInput" oninput="filterGallery()" placeholder="Search photos by topic, speaker, event, or location..." class="w-full pl-12 pr-10 py-3.5 rounded-2xl border border-slate-300 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-transparent text-sm text-slate-800 placeholder-slate-400">
-                    <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
-                        <i class="fa-solid fa-xmark"></i>
+            <!-- Search and Filter Bar -->
+            <div class="flex flex-col md:flex-row gap-4 mb-8 items-center justify-between">
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2 w-full md:w-auto" id="filter-buttons">
+                    <button data-filter="all" class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-emerald-600 text-white shadow-md">
+                        All Photos (26)
+                    </button>
+                    <button data-filter="events" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-800 text-slate-300 hover:bg-slate-700">
+                        Events & Gatherings
+                    </button>
+                    <button data-filter="community" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-800 text-slate-300 hover:bg-slate-700">
+                        Community Projects
+                    </button>
+                    <button data-filter="youth" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-800 text-slate-300 hover:bg-slate-700">
+                        Youth Leadership
                     </button>
                 </div>
+
+                <!-- Live Search Box -->
+                <div class="relative w-full md:w-72">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="gallery-search" placeholder="Search photos..." 
+                           class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-10 pr-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-500 placeholder-slate-500">
+                </div>
             </div>
 
-            <!-- Category Filter Pills -->
-            <div id="filterPillsContainer" class="flex flex-wrap items-center justify-center gap-2 mb-12">
-                <!-- Dynamically populated filter pills -->
+            <!-- Dynamic Photo Grid (Includes photos photo1.jpg through photo26.jpg) -->
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                <!-- Dynamically populated via JS -->
             </div>
 
-            <!-- Gallery Grid -->
-            <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <!-- Dynamically populated photos -->
-            </div>
-
-            <!-- Empty State Message -->
-            <div id="noResultsMsg" class="hidden text-center py-16 bg-white rounded-3xl shadow-sm border border-slate-200">
-                <i class="fa-solid fa-images text-5xl text-slate-300 mb-4"></i>
-                <h3 class="text-xl font-bold text-slate-700">No photos match your filter</h3>
-                <p class="text-slate-500 text-sm mt-1">Try resetting search keywords or selecting a different category.</p>
-                <button onclick="resetFilters()" class="mt-4 px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider hover:bg-emerald-700 transition">
-                    Reset All Filters
-                </button>
+            <!-- No Results Message -->
+            <div id="no-results" class="hidden text-center py-16">
+                <i class="fa-regular fa-image text-4xl text-slate-600 mb-3 block"></i>
+                <p class="text-slate-400 font-medium">No matching photos found.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact & Mosque Information Section -->
-    <section id="contact" class="py-20 bg-white">
+    <!-- Leadership & Chairman Section -->
+    <section id="leadership" class="py-20 bg-slate-900 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-                <div class="lg:col-span-5 bg-gradient-to-br from-emerald-900 to-emerald-950 p-8 sm:p-10 rounded-3xl text-white shadow-xl flex flex-col justify-between">
-                    <div>
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold mb-6 border border-amber-500/30">
-                            <i class="fa-solid fa-location-pin"></i> Base Location
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2">Our Visionaries</h2>
+                <p class="font-heading text-3xl sm:text-4xl font-extrabold text-white">Group Leadership</p>
+                <div class="w-16 h-1 bg-emerald-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto glass-card rounded-3xl p-6 sm:p-10 border border-slate-800">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <!-- Chairman Photo: chairman.jpg -->
+                    <div class="relative flex-shrink-0">
+                        <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border-2 border-emerald-500 shadow-2xl shadow-emerald-950">
+                            <img src="chairman.jpg" 
+                                 onerror="this.onerror=null; this.src='https://placehold.co/400x400/1e293b/10b981?text=CMY+Chairman';" 
+                                 alt="CMY Chairman" 
+                                 class="w-full h-full object-cover">
                         </div>
-                        <h3 class="text-2xl sm:text-3xl font-extrabold mb-4">Changara Muslim Youth Center</h3>
-                        <p class="text-emerald-200 text-sm leading-relaxed mb-8">
-                            Headquartered at Changara Mosque, serves as our center for Islamic studies, youth development councils, community gatherings, and agricultural training.
+                        <div class="absolute -bottom-3 -right-3 bg-emerald-600 text-white p-3 rounded-xl shadow-lg">
+                            <i class="fa-solid fa-quote-right text-lg"></i>
+                        </div>
+                    </div>
+
+                    <div class="text-center md:text-left space-y-4">
+                        <div>
+                            <span class="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-bold rounded-full uppercase tracking-wider mb-2">Office of the Chairman</span>
+                            <h3 class="font-heading text-2xl sm:text-3xl font-extrabold text-white">CMY Executive Leadership</h3>
+                            <p class="text-xs text-slate-400 font-medium">Changara Muslim Youth Group</p>
+                        </div>
+
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed italic">
+                            "Our mission is to unite the youth of Changara through service, faith, and mutual support. Together, we empower the next generation to be upright leaders and positive role models in our community."
                         </p>
 
-                        <div class="space-y-4 text-sm">
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-xl bg-emerald-800/80 flex items-center justify-center text-amber-400 shrink-0">
-                                    <i class="fa-solid fa-map-location-dot"></i>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-white">Location Address</p>
-                                    <p class="text-xs text-emerald-300">Changara Mosque, Teso North Sub-County, Busia County, Western Kenya</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-xl bg-emerald-800/80 flex items-center justify-center text-amber-400 shrink-0">
-                                    <i class="fa-solid fa-phone"></i>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-white">Contact & M-PESA Support</p>
-                                    <p class="text-xs text-emerald-300">Paybill: 400200 | Account: 55549</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-xl bg-emerald-800/80 flex items-center justify-center text-amber-400 shrink-0">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-white">Official Correspondence</p>
-                                    <p class="text-xs text-emerald-300">Changara Muslim Youth Group (CMY) Secretariat</p>
-                                </div>
-                            </div>
+                        <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-3">
+                            <span class="px-3 py-1 bg-slate-800 border border-slate-700 rounded-lg text-xs text-slate-300">
+                                <i class="fa-solid fa-check text-emerald-400 mr-1.5"></i> Youth Mentorship
+                            </span>
+                            <span class="px-3 py-1 bg-slate-800 border border-slate-700 rounded-lg text-xs text-slate-300">
+                                <i class="fa-solid fa-check text-emerald-400 mr-1.5"></i> Community Welfare
+                            </span>
                         </div>
-                    </div>
-
-                    <div class="pt-8 border-t border-emerald-800/80 mt-8">
-                        <p class="text-xs text-emerald-300 font-medium mb-3">Connect with Us</p>
-                        <div class="flex items-center gap-3">
-                            <button onclick="showToast('Social links available via local secretariat')" class="w-10 h-10 rounded-xl bg-emerald-800 hover:bg-amber-500 hover:text-slate-950 transition text-emerald-200 flex items-center justify-center">
-                                <i class="fa-brands fa-facebook-f"></i>
-                            </button>
-                            <button onclick="showToast('WhatsApp group active for registered members')" class="w-10 h-10 rounded-xl bg-emerald-800 hover:bg-amber-500 hover:text-slate-950 transition text-emerald-200 flex items-center justify-center">
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </button>
-                            <button onclick="showToast('YouTube sermon channel coming soon')" class="w-10 h-10 rounded-xl bg-emerald-800 hover:bg-amber-500 hover:text-slate-950 transition text-emerald-200 flex items-center justify-center">
-                                <i class="fa-brands fa-youtube"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact / Inquiry Form Card -->
-                <div class="lg:col-span-7 bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Send Message / Partnership Inquiry</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 mb-6">Interested in organizing a seminar, visiting Changara, or supporting youth education? Reach out to our executive committee.</p>
-
-                        <form onsubmit="handleContactSubmit(event)" class="space-y-4">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Full Name</label>
-                                    <input type="text" required placeholder="e.g. Brother Hassan / Sister Aisha" class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Phone Number / WhatsApp</label>
-                                    <input type="tel" required placeholder="+254 7XX XXX XXX" class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none">
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Inquiry Subject</label>
-                                <select class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none">
-                                    <option>Youth Seminar & Education Partnership</option>
-                                    <option>Madrasa & Quranic Sponsorship</option>
-                                    <option>Agricultural Project Collaboration</option>
-                                    <option>Donation & Paybill Inquiry</option>
-                                    <option>General Support & Volunteering</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Message</label>
-                                <textarea rows="4" required placeholder="Write your message here..." class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none"></textarea>
-                            </div>
-
-                            <button type="submit" class="w-full py-3.5 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-sm shadow-md transition flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-paper-plane"></i>
-                                <span>Submit Message</span>
-                            </button>
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-emerald-950 text-emerald-200 py-12 border-t border-emerald-900">
+    <!-- Donation & Support Section -->
+    <section id="donate" class="py-20 bg-slate-950 border-t border-slate-800 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-                <div class="md:col-span-2">
-                    <div class="flex items-center gap-3 mb-4">
-                        <i class="fa-solid fa-star-and-crescent text-amber-400 text-2xl"></i>
-                        <span class="font-extrabold text-xl text-white">Changara Muslim Youth Group</span>
-                    </div>
-                    <p class="text-xs text-emerald-300/80 leading-relaxed max-w-md">
-                        Empowering youth through faith, knowledge, and community development across Teso North Sub-County, Busia County, Kenya.
-                    </p>
-                    <p class="arabic-text text-amber-400 text-lg mt-3">
-                        خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ
-                    </p>
-                    <p class="text-[11px] text-emerald-400 italic">"The best of people are those who are most beneficial to others."</p>
-                </div>
-
-                <div>
-                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="#home" class="hover:text-amber-400 transition">Home Banner</a></li>
-                        <li><a href="#about" class="hover:text-amber-400 transition">Leadership & Vision</a></li>
-                        <li><a href="#donate-section" class="hover:text-amber-400 transition">M-PESA Donation Details</a></li>
-                        <li><a href="#gallery" class="hover:text-amber-400 transition">Photo Catalog</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">M-PESA Donation</h4>
-                    <div class="text-xs space-y-1 text-emerald-300 bg-emerald-900/60 p-3 rounded-xl border border-emerald-800">
-                        <p><strong class="text-amber-400">Paybill:</strong> 400200</p>
-                        <p><strong class="text-white">Account:</strong> 55549</p>
-                        <p><strong class="text-white">Business:</strong> CHANGARA MUSLIM YOUTH</p>
-                    </div>
-                </div>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2">Support Our Cause</h2>
+                <p class="font-heading text-3xl sm:text-4xl font-extrabold text-white">Donate to Changara Youth</p>
+                <p class="text-slate-400 text-sm mt-3">Your financial contributions help us fund local youth programs, educational materials, and charity drives.</p>
             </div>
 
-            <div class="pt-8 border-t border-emerald-900 flex flex-col sm:flex-row items-center justify-between text-xs text-emerald-400/80 gap-4">
-                <p>&copy; <span id="yearSpan"></span> Changara Muslim Youth Group (CMY) / Changara Islamic Youth Community (CIYC). All rights reserved.</p>
-                <p class="flex items-center gap-1">
-                    <span>Built for Changara Community, Busia County, Kenya</span>
-                </p>
+            <div class="grid md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+                
+                <!-- Paybill Image Container: donation paybill.jpg -->
+                <div class="glass-card rounded-3xl p-6 border border-slate-800 text-center flex flex-col items-center">
+                    <h3 class="font-heading text-xl font-bold text-white mb-4">Official M-Pesa Paybill Poster</h3>
+                    <div class="w-full max-w-md rounded-2xl overflow-hidden border-2 border-emerald-500/40 shadow-2xl bg-slate-900">
+                        <img src="donation paybill.jpg" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x800/0f172a/10b981?text=M-Pesa+Paybill+Details';" 
+                             alt="CMY Donation Paybill Poster" 
+                             class="w-full h-auto object-contain hover:scale-102 transition duration-300">
+                    </div>
+                    <p class="text-xs text-slate-400 mt-4">Scan or refer to the poster above for official instructions.</p>
+                </div>
+
+                <!-- Quick Copy Payment Card -->
+                <div class="glass-card rounded-3xl p-8 border border-slate-800 space-y-6">
+                    <div class="flex items-center space-x-3 text-emerald-400">
+                        <i class="fa-solid fa-mobile-screen-button text-2xl"></i>
+                        <h3 class="font-heading text-2xl font-bold text-white">M-Pesa Payment Details</h3>
+                    </div>
+
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        You can send your Sadaka or donations directly through M-Pesa using the details provided below:
+                    </p>
+
+                    <!-- Paybill Details List -->
+                    <div class="space-y-4 bg-slate-900/80 p-5 rounded-2xl border border-slate-800">
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+                            <div>
+                                <span class="block text-xs text-slate-400 uppercase font-semibold">Payment Type</span>
+                                <span class="font-bold text-white text-base">Lipa Na M-PESA</span>
+                            </div>
+                            <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 rounded-md text-xs font-bold">Official</span>
+                        </div>
+
+                        <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+                            <div>
+                                <span class="block text-xs text-slate-400 uppercase font-semibold">Business Number / Paybill</span>
+                                <span id="paybill-number" class="font-mono text-xl font-extrabold text-amber-400">REFER POSTER</span>
+                            </div>
+                            <button onclick="copyToClipboard('REFER POSTER', 'Paybill')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition">
+                                <i class="fa-regular fa-copy mr-1"></i> Copy
+                            </button>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="block text-xs text-slate-400 uppercase font-semibold">Account Name</span>
+                                <span class="font-bold text-white">CMY GROUP</span>
+                            </div>
+                            <button onclick="copyToClipboard('CMY GROUP', 'Account Name')" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition">
+                                <i class="fa-regular fa-copy mr-1"></i> Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Steps to pay -->
+                    <div class="space-y-2 text-xs text-slate-400">
+                        <p class="font-bold text-slate-300 text-sm">How to Pay via M-Pesa:</p>
+                        <ol class="list-decimal list-inside space-y-1">
+                            <li>Go to M-Pesa menu on your phone</li>
+                            <li>Select <strong>Lipa na M-Pesa</strong> then <strong>Paybill / Till</strong></li>
+                            <li>Enter the details as shown on the poster</li>
+                            <li>Enter Amount & your M-Pesa PIN to confirm</li>
+                        </ol>
+                    </div>
+
+                    <div id="copy-toast" class="hidden p-3 bg-emerald-600 text-white text-xs font-bold rounded-xl text-center shadow-lg transition">
+                        Copied to clipboard successfully!
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-slate-950/95 backdrop-blur-xl flex items-center justify-center p-4">
+        
+        <!-- Close Button -->
+        <button id="lightbox-close" class="absolute top-5 right-5 w-12 h-12 rounded-full bg-slate-800/80 hover:bg-slate-700 text-white flex items-center justify-center text-xl transition z-10">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Previous Button -->
+        <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-800/80 hover:bg-slate-700 text-white flex items-center justify-center text-xl transition z-10">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <!-- Next Button -->
+        <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-800/80 hover:bg-slate-700 text-white flex items-center justify-center text-xl transition z-10">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- Main Lightbox Content -->
+        <div class="max-w-5xl max-h-[90vh] flex flex-col items-center">
+            <img id="lightbox-img" src="" alt="Enlarged photo" class="max-h-[75vh] w-auto max-w-full object-contain rounded-2xl border border-slate-800 shadow-2xl">
+            <div class="mt-4 text-center">
+                <h4 id="lightbox-title" class="font-heading text-lg font-bold text-white">Photo Title</h4>
+                <p id="lightbox-counter" class="text-xs text-emerald-400 mt-1 font-semibold">Image 1 of 26</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-12 text-slate-400 text-sm mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <!-- Brand Info -->
+                <div class="flex items-center space-x-3 text-center md:text-left">
+                    <img src="logo.png" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/80x80/059669/ffffff?text=CMY';" 
+                         alt="CMY Footer Logo" 
+                         class="w-10 h-10 rounded-full border border-emerald-500 object-cover">
+                    <div>
+                        <span class="block text-white font-bold font-heading">Changara Muslim Youth Group</span>
+                        <span class="text-xs text-slate-500">Dedicated to Unity, Faith and Progress</span>
+                    </div>
+                </div>
+
+                <!-- Footer Quick Nav -->
+                <div class="flex flex-wrap justify-center gap-6 text-xs font-semibold">
+                    <a href="#about" class="hover:text-emerald-400 transition">About Us</a>
+                    <a href="#gallery" class="hover:text-emerald-400 transition">Gallery</a>
+                    <a href="#leadership" class="hover:text-emerald-400 transition">Leadership</a>
+                    <a href="#donate" class="hover:text-emerald-400 transition">Donate</a>
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-xs text-slate-500 text-center md:text-right">
+                    <p>&copy; <span id="year"></span> Changara Muslim Youth Group. All rights reserved.</p>
+                </div>
+
             </div>
         </div>
     </footer>
 
-    <!-- Fullscreen Lightbox Modal -->
-    <div id="lightboxModal" class="fixed inset-0 z-50 hidden bg-slate-950/95 backdrop-blur-lg flex flex-col justify-between transition-opacity duration-300">
-        <!-- Top Toolbar -->
-        <div class="p-4 sm:px-8 flex items-center justify-between border-b border-slate-800/80 text-white z-10">
-            <div class="flex items-center gap-3">
-                <span id="lbCounter" class="px-3 py-1 rounded-full bg-emerald-900 text-amber-400 text-xs font-bold border border-emerald-700">Photo 1 of 21</span>
-                <span id="lbCategory" class="text-xs text-slate-300 hidden sm:inline-block font-medium">Category</span>
-            </div>
-            
-            <div class="flex items-center gap-2">
-                <!-- Zoom Toggle Button -->
-                <button onclick="toggleZoom()" id="lbZoomBtn" class="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 transition text-xs font-bold flex items-center gap-1.5" title="Toggle Zoom Mode">
-                    <i id="zoomIcon" class="fa-solid fa-magnifying-glass-plus"></i>
-                    <span id="zoomText" class="hidden sm:inline">Zoom 1.5x</span>
-                </button>
-
-                <!-- Close Button -->
-                <button onclick="closeLightbox()" class="p-2.5 rounded-xl bg-slate-800 hover:bg-red-600 text-slate-200 hover:text-white transition" title="Close Modal (Esc)">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Central Image View Container -->
-        <div class="relative flex-1 flex items-center justify-center p-2 sm:p-6 overflow-hidden select-none">
-            <!-- Navigation Previous Button -->
-            <button onclick="prevPhoto()" class="absolute left-2 sm:left-6 z-20 p-3 sm:p-4 rounded-full bg-slate-900/80 hover:bg-emerald-600 text-white shadow-xl transition transform hover:scale-110 border border-slate-700" title="Previous (Left Arrow)">
-                <i class="fa-solid fa-chevron-left text-lg"></i>
-            </button>
-
-            <!-- Main Image Wrapper -->
-            <div class="max-w-5xl max-h-[75vh] flex items-center justify-center overflow-auto transition-all duration-300" id="lbImageWrapper">
-                <img id="lbImage" src="" alt="Gallery Detailed View" class="max-h-[75vh] w-auto object-contain rounded-2xl shadow-2xl transition-transform duration-300 cursor-zoom-in">
-            </div>
-
-            <!-- Navigation Next Button -->
-            <button onclick="nextPhoto()" class="absolute right-2 sm:right-6 z-20 p-3 sm:p-4 rounded-full bg-slate-900/80 hover:bg-emerald-600 text-white shadow-xl transition transform hover:scale-110 border border-slate-700" title="Next (Right Arrow)">
-                <i class="fa-solid fa-chevron-right text-lg"></i>
-            </button>
-        </div>
-
-        <!-- Bottom Caption Bar -->
-        <div class="p-4 sm:p-6 bg-slate-900/90 border-t border-slate-800 text-white z-10">
-            <div class="max-w-4xl mx-auto">
-                <h3 id="lbTitle" class="text-lg sm:text-xl font-bold text-amber-400">Photo Title</h3>
-                <p id="lbDescription" class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">Photo Description</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Interactive Donation Modal -->
-    <div id="donateModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-slate-100 animate-in fade-in zoom-in duration-200">
-            <!-- Close Button -->
-            <button onclick="closeDonateModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-800 transition flex items-center justify-center">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-
-            <div class="text-center mb-6">
-                <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto mb-3 text-2xl font-black">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-slate-900">Support CMY Community</h3>
-                <p class="text-xs text-slate-500 mt-1">Official M-PESA Paybill Donation Guide</p>
-            </div>
-
-            <!-- Paybill Details Summary Box -->
-            <div class="bg-emerald-950 text-white p-5 rounded-2xl mb-6 shadow-inner space-y-3">
-                <div class="flex items-center justify-between border-b border-emerald-800 pb-2">
-                    <span class="text-xs text-emerald-300">Paybill Number</span>
-                    <div class="flex items-center gap-2">
-                        <span class="text-xl font-extrabold text-amber-400">400200</span>
-                        <button onclick="copyText('400200', 'Paybill Number 400200')" class="px-2 py-1 rounded bg-emerald-800 text-[10px] text-amber-300 font-bold hover:bg-emerald-700">Copy</button>
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-between border-b border-emerald-800 pb-2">
-                    <span class="text-xs text-emerald-300">Account Number</span>
-                    <div class="flex items-center gap-2">
-                        <span class="text-xl font-extrabold text-white">55549</span>
-                        <button onclick="copyText('55549', 'Account Number 55549')" class="px-2 py-1 rounded bg-emerald-800 text-[10px] text-amber-300 font-bold hover:bg-emerald-700">Copy</button>
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-between">
-                    <span class="text-xs text-emerald-300">Business Name</span>
-                    <span class="text-xs font-bold text-emerald-100">CHANGARA MUSLIM YOUTH</span>
-                </div>
-            </div>
-
-            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-2 mb-6">
-                <p class="font-bold text-slate-800">Quick M-PESA Steps:</p>
-                <p>1. Open Safaricom SIM Toolkit / M-PESA App</p>
-                <p>2. Choose <strong>Lipa Na M-PESA</strong> &rarr; <strong>Pay Bill</strong></p>
-                <p>3. Enter Business No: <strong class="text-emerald-800">400200</strong></p>
-                <p>4. Enter Account No: <strong class="text-emerald-800">55549</strong></p>
-                <p>5. Enter Amount and complete with PIN.</p>
-            </div>
-
-            <button onclick="closeDonateModal()" class="w-full py-3 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-sm shadow transition">
-                I Have Saved The Details
-            </button>
-        </div>
-    </div>
-
-    <!-- Toast Notification Container -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-3 transition-all duration-300">
-        <div class="w-8 h-8 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center font-bold text-sm">
-            <i class="fa-solid fa-check"></i>
-        </div>
-        <div>
-            <p id="toastTitle" class="text-xs font-bold text-amber-400">Notification</p>
-            <p id="toastMessage" class="text-xs text-slate-200">Action completed successfully.</p>
-        </div>
-    </div>
-
+    <!-- Client-side Logic Script -->
     <script>
-        // Set dynamic copyright year
-        document.getElementById('yearSpan').textContent = new Date().getFullYear();
-
-        // Catalog of 21 Complete Photos
-        const photosData = [
-            {
-                id: 1,
-                src: "photo9_2.jpg",
-                title: "Sisters & Madrasa Community Group Photo",
-                category: "Women & Youth Empowerment",
-                description: "Female students, madrasa sisters, and community mothers gathered outside Changara Mosque following an educational session.",
-                location: "Changara Mosque Lawn",
-                featuredHero: true
-            },
-            {
-                id: 2,
-                src: "chairman_2.jpg",
-                title: "Message from CMY Leadership",
-                category: "Governance & Mosque Life",
-                description: "CMY Chairman Sheikh addressing a youth seminar outdoors under the marquee tent at Changara.",
-                location: "Changara Open Grounds"
-            },
-            {
-                id: 3,
-                src: "donation paybill_2.jpg",
-                title: "Official M-PESA Paybill Banner",
-                category: "Charity & Welfare",
-                description: "Official donation banner displaying Paybill 400200 and Account Number 55549 for Changara Muslim Youth.",
-                location: "Official Poster"
-            },
-            {
-                id: 4,
-                src: "photo7_2.jpg",
-                title: "Haki ya Wazazi & Islamic Jurisprudence Class",
-                category: "Education & Madrasa",
-                description: "Teacher presenting lessons on parental rights (Haki ya Wazazi) and Islamic morals using chalkboard in the brick classroom.",
-                location: "Changara Madrasa Hall"
-            },
-            {
-                id: 5,
-                src: "photo8_2.jpg",
-                title: "Youth Delegation Classroom Workshop Presentation",
-                category: "Seminars & Workshops",
-                description: "Young leader presenting a paper during an interactive youth leadership workshop in the lecture room.",
-                location: "Classroom Workshop"
-            },
-            {
-                id: 6,
-                src: "photo10_2.jpg",
-                title: "Youth and Children Seminar Session",
-                category: "Seminars & Workshops",
-                description: "Packed indoor attendance of youth, scholars, and children listening attentively to a guest speaker.",
-                location: "Changara Community Center"
-            },
-            {
-                id: 7,
-                src: "photo11_2.jpg",
-                title: "Executive Panel & Female Speaker Address",
-                category: "Women & Youth Empowerment",
-                description: "Sister speaking from the executive panel table during a combined youth development and education symposium.",
-                location: "Classroom Workshop"
-            },
-            {
-                id: 8,
-                src: "photo12_2.jpg",
-                title: "Oral Quran & Islamic Knowledge Quiz",
-                category: "Education & Madrasa",
-                description: "Student standing before panel of scholars and elders during an oral Quran recitation and Islamic history competition.",
-                location: "Changara Madrasa"
-            },
-            {
-                id: 9,
-                src: "photo13_2.jpg",
-                title: "Scholar Lecture on 'Importance of Youth in Islam'",
-                category: "Seminars & Workshops",
-                description: "Guest scholar taking notes and lecturing on the role of Muslim youth in community development.",
-                location: "Changara Seminar Room"
-            },
-            {
-                id: 10,
-                src: "photo5_2.jpg",
-                title: "Communal Meal Sharing & Brotherhood",
-                category: "Charity & Welfare",
-                description: "Elders, scholars, and youth enjoying a communal meal together after Friday prayers and seminar activities.",
-                location: "Changara Mosque Compound"
-            },
-            {
-                id: 11,
-                src: "photo6_2.jpg",
-                title: "Madrasa Girls Qasida Recitation",
-                category: "Education & Madrasa",
-                description: "Young madrasa girls performing Qasida and nasheeds before scholars and community elders.",
-                location: "Madrasa Stage"
-            },
-            {
-                id: 12,
-                src: "photo16_3.jpg",
-                title: "Participant Registration at Annual Conference",
-                category: "Seminars & Workshops",
-                description: "Organizers registering delegates and distributing study materials at the registration desk.",
-                location: "Conference Hall Entrance"
-            },
-            {
-                id: 13,
-                src: "photo17_3.jpg",
-                title: "Outdoor Mentorship Study Circle",
-                category: "Seminars & Workshops",
-                description: "Youth study circle (Halaqa) held outdoors under the shade of pine trees in Teso North.",
-                location: "Changara Pine Grove"
-            },
-            {
-                id: 14,
-                src: "photo18_3.jpg",
-                title: "Quran Recitation at Youth Conference",
-                category: "Education & Madrasa",
-                description: "Student opening the youth conference with melodic Quranic recitation.",
-                location: "Assembly Room"
-            },
-            {
-                id: 15,
-                src: "photo19_3.jpg",
-                title: "Scholars & Guest Sheikhs Keynote Panel",
-                category: "Governance & Mosque Life",
-                description: "Distinguished Sheikhs and scholars seated at the head table presiding over the regional youth summit.",
-                location: "Mosque Conference Center"
-            },
-            {
-                id: 16,
-                src: "photo20_3.jpg",
-                title: "Unity & Team-Building Tension Rope Activity",
-                category: "Charity & Welfare",
-                description: "Youth participating in an interactive physical activity symbolizing community strength and teamwork.",
-                location: "Changara Field"
-            },
-            {
-                id: 17,
-                src: "photo21_3.jpg",
-                title: "Youth Farming & Agricultural Empowerment",
-                category: "Agriculture & Self-Reliance",
-                description: "CMY youth members cultivating and tilling the community maize farm in Teso North.",
-                location: "Changara Community Farm"
-            },
-            {
-                id: 18,
-                src: "photo15_3.jpg",
-                title: "Award & Certificate Presentation to Youth Leaders",
-                category: "Women & Youth Empowerment",
-                description: "Recognition ceremony presenting certificates of achievement to active youth volunteers.",
-                location: "Seminar Stage"
-            },
-            {
-                id: 19,
-                src: "photo2_2.jpg",
-                title: "Youth Council Halaqa inside Changara Mosque",
-                category: "Governance & Mosque Life",
-                description: "Circle of young men discussing mosque governance, youth welfare, and event planning.",
-                location: "Inside Changara Mosque"
-            },
-            {
-                id: 20,
-                src: "photo3_2.jpg",
-                title: "Interactive Quiz & Prize Distribution for Kids",
-                category: "Women & Youth Empowerment",
-                description: "Rewarding children with storybooks and stationery after winning the Islamic quiz contest.",
-                location: "Madrasa Courtyard"
-            },
-            {
-                id: 21,
-                src: "photo1_2.jpg",
-                title: "Women & Girls Madrasa Group Delegation",
-                category: "Education & Madrasa",
-                description: "Group photo of sisters and young girls in colorful hijabs after completing their weekend Islamic studies.",
-                location: "Changara Mosque Entrance"
-            }
+        // Array of 26 exact photos as per repository files photo1.jpg to photo26.jpg
+        const galleryData = [
+            { id: 1, file: 'photo1.jpg', title: 'Community Gathering', category: 'events' },
+            { id: 2, file: 'photo2.jpg', title: 'Youth Workshop Session', category: 'youth' },
+            { id: 3, file: 'photo3.jpg', title: 'Islamic Lecture & Reflection', category: 'events' },
+            { id: 4, file: 'photo4.jpg', title: 'Community Outreach Project', category: 'community' },
+            { id: 5, file: 'photo5.jpg', title: 'Youth Committee Meeting', category: 'youth' },
+            { id: 6, file: 'photo6.jpg', title: 'Local Welfare Drive', category: 'community' },
+            { id: 7, file: 'photo7.jpg', title: 'Islamic Youth Mentorship', category: 'youth' },
+            { id: 8, file: 'photo8.jpg', title: 'Group Celebration & Dinner', category: 'events' },
+            { id: 9, file: 'photo9.jpg', title: 'Changara Community Hero', category: 'community' },
+            { id: 10, file: 'photo10.jpg', title: 'Youth Empowerment Forum', category: 'youth' },
+            { id: 11, file: 'photo11.jpg', title: 'Charity Distribution Activity', category: 'community' },
+            { id: 12, file: 'photo12.jpg', title: 'CMY Event Coordination', category: 'events' },
+            { id: 13, file: 'photo13.jpg', title: 'Youth Discussion Circle', category: 'youth' },
+            { id: 14, file: 'photo14.jpg', title: 'Community Volunteer Work', category: 'community' },
+            { id: 15, file: 'photo15.jpg', title: 'Members Development Seminar', category: 'youth' },
+            { id: 16, file: 'photo16.jpg', title: 'Annual Youth Assembly', category: 'events' },
+            { id: 17, file: 'photo17.jpg', title: 'Local Educational Workshop', category: 'community' },
+            { id: 18, file: 'photo18.jpg', title: 'Islamic Cultural Event', category: 'events' },
+            { id: 19, file: 'photo19.jpg', title: 'Youth Leadership Forum', category: 'youth' },
+            { id: 20, file: 'photo20.jpg', title: 'Community Support Action', category: 'community' },
+            { id: 21, file: 'photo21.jpg', title: 'Team Building Session', category: 'youth' },
+            { id: 22, file: 'photo22.jpg', title: 'Religious Knowledge Circle', category: 'events' },
+            { id: 23, file: 'photo23.jpg', title: 'Welfare Project Planning', category: 'community' },
+            { id: 24, file: 'photo24.jpg', title: 'Youth Members Meetup', category: 'youth' },
+            { id: 25, file: 'photo25.jpg', title: 'Community Development Work', category: 'community' },
+            { id: 26, file: 'photo26.jpg', title: 'CMY Group Group Photo', category: 'events' }
         ];
 
-        // Categories list
-        const categories = [
-            "All",
-            "Education & Madrasa",
-            "Seminars & Workshops",
-            "Women & Youth Empowerment",
-            "Agriculture & Self-Reliance",
-            "Governance & Mosque Life",
-            "Charity & Welfare"
-        ];
+        let currentActiveList = [...galleryData];
+        let currentLightboxIndex = 0;
 
-        let activeCategory = "All";
-        let currentPhotoIndex = 0;
-        let isZoomed = false;
-        let filteredPhotos = [...photosData];
+        // Initialize elements on DOM load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('year').textContent = new Date().getFullYear();
+            renderGallery(galleryData);
+            setupFiltersAndSearch();
+            setupMobileMenu();
+            setupLightbox();
+        });
 
-        function initGallery() {
-            renderFilterPills();
-            renderGalleryGrid();
-        }
-
-        // Render Filter Pills with Count Badges
-        function renderFilterPills() {
-            const pillsContainer = document.getElementById('filterPillsContainer');
-            pillsContainer.innerHTML = '';
-
-            categories.forEach(cat => {
-                const count = cat === "All" 
-                    ? photosData.length 
-                    : photosData.filter(p => p.category === cat).length;
-
-                const isSelected = activeCategory === cat;
-                const pill = document.createElement('button');
-                pill.className = `px-4 py-2 rounded-full text-xs font-bold transition flex items-center gap-2 border ${
-                    isSelected 
-                        ? 'bg-emerald-800 text-amber-300 border-emerald-700 shadow-md scale-105' 
-                        : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 hover:border-slate-300'
-                }`;
-                
-                pill.onclick = () => {
-                    activeCategory = cat;
-                    renderFilterPills();
-                    filterGallery();
-                };
-
-                pill.innerHTML = `
-                    <span>${cat}</span>
-                    <span class="px-2 py-0.5 rounded-full text-[10px] ${
-                        isSelected ? 'bg-emerald-950 text-amber-400' : 'bg-slate-100 text-slate-600'
-                    }">${count}</span>
-                `;
-
-                pillsContainer.appendChild(pill);
-            });
-        }
-
-        // Filter Photos based on Search & Category
-        function filterGallery() {
-            const searchInput = document.getElementById('gallerySearchInput');
-            const clearBtn = document.getElementById('clearSearchBtn');
-            const query = searchInput.value.trim().toLowerCase();
-
-            if (query.length > 0) {
-                clearBtn.classList.remove('hidden');
-            } else {
-                clearBtn.classList.add('hidden');
-            }
-
-            filteredPhotos = photosData.filter(photo => {
-                const matchesCategory = (activeCategory === "All") || (photo.category === activeCategory);
-                const matchesQuery = query === "" || 
-                    photo.title.toLowerCase().includes(query) ||
-                    photo.description.toLowerCase().includes(query) ||
-                    photo.category.toLowerCase().includes(query) ||
-                    photo.location.toLowerCase().includes(query);
-
-                return matchesCategory && matchesQuery;
-            });
-
-            renderGalleryGrid();
-        }
-
-        // Render Photo Grid
-        function renderGalleryGrid() {
-            const grid = document.getElementById('galleryGrid');
-            const noResultsMsg = document.getElementById('noResultsMsg');
-
+        function renderGallery(items) {
+            const grid = document.getElementById('gallery-grid');
+            const noResults = document.getElementById('no-results');
             grid.innerHTML = '';
 
-            if (filteredPhotos.length === 0) {
-                noResultsMsg.classList.remove('hidden');
-                grid.classList.add('hidden');
+            if (items.length === 0) {
+                noResults.classList.remove('hidden');
                 return;
+            } else {
+                noResults.classList.add('hidden');
             }
 
-            noResultsMsg.classList.add('hidden');
-            grid.classList.remove('hidden');
-
-            filteredPhotos.forEach((photo, index) => {
+            items.forEach((item, index) => {
                 const card = document.createElement('div');
-                card.className = "gallery-card bg-white rounded-2xl overflow-hidden shadow-md border border-slate-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group cursor-pointer";
+                card.className = 'group relative glass-card rounded-2xl overflow-hidden cursor-pointer border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 transform hover:-translate-y-1 shadow-lg';
                 card.onclick = () => openLightbox(index);
 
                 card.innerHTML = `
-                    <div class="relative h-56 overflow-hidden bg-slate-900">
-                        <img src="${photo.src}" alt="${photo.title}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x400/054734/ffffff?text=${encodeURIComponent(photo.title)}'">
-                        
-                        <!-- Overlay -->
-                        <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent opacity-0 transition duration-300 flex items-end p-4">
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500 text-slate-950 text-xs font-bold shadow">
-                                <i class="fa-solid fa-expand"></i> View Full Photo
-                            </span>
-                        </div>
-
-                        <!-- Category Tag -->
-                        <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-emerald-900/90 backdrop-blur-md text-amber-300 text-[11px] font-bold border border-emerald-700/60 shadow">
-                            ${photo.category}
-                        </span>
-                    </div>
-
-                    <div class="p-4 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="font-bold text-slate-900 text-sm group-hover:text-emerald-700 transition line-clamp-1">${photo.title}</h3>
-                            <p class="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">${photo.description}</p>
-                        </div>
-                        <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-medium">
-                            <span><i class="fa-solid fa-location-dot text-amber-500 mr-1"></i>${photo.location}</span>
-                            <span class="text-emerald-700 font-bold group-hover:underline">Enlarge &rarr;</span>
+                    <div class="aspect-square w-full overflow-hidden bg-slate-950 relative">
+                        <img src="${item.file}" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/500x500/1e293b/10b981?text=Photo+${item.id}';" 
+                             alt="${item.title}" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
+                            <div>
+                                <span class="px-2 py-0.5 bg-emerald-600 text-white rounded text-[10px] font-bold uppercase tracking-wider mb-1 inline-block">${item.category}</span>
+                                <h3 class="text-white font-heading font-bold text-sm leading-snug">${item.title}</h3>
+                            </div>
                         </div>
                     </div>
                 `;
-
                 grid.appendChild(card);
             });
         }
 
-        function openLightbox(index) {
-            currentPhotoIndex = index;
-            isZoomed = false;
-            updateLightboxContent();
-            
-            const modal = document.getElementById('lightboxModal');
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // prevent scroll
-        }
+        function setupFiltersAndSearch() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const searchInput = document.getElementById('gallery-search');
 
-        function closeLightbox() {
-            const modal = document.getElementById('lightboxModal');
-            modal.classList.add('hidden');
-            document.body.style.overflow = '';
-            resetZoomState();
-        }
+            let currentCategory = 'all';
+            let currentQuery = '';
 
-        function updateLightboxContent() {
-            if (filteredPhotos.length === 0) return;
-
-            const photo = filteredPhotos[currentPhotoIndex];
-            
-            document.getElementById('lbCounter').textContent = `Photo ${currentPhotoIndex + 1} of ${filteredPhotos.length}`;
-            document.getElementById('lbCategory').textContent = photo.category;
-            document.getElementById('lbTitle').textContent = photo.title;
-            document.getElementById('lbDescription').textContent = `${photo.description} — Location: ${photo.location}`;
-            
-            const img = document.getElementById('lbImage');
-            img.src = photo.src;
-            img.onerror = () => { img.src = `https://placehold.co/800x600/054734/ffffff?text=${encodeURIComponent(photo.title)}`; };
-
-            resetZoomState();
-        }
-
-        function nextPhoto() {
-            if (filteredPhotos.length === 0) return;
-            currentPhotoIndex = (currentPhotoIndex + 1) % filteredPhotos.length;
-            updateLightboxContent();
-        }
-
-        function prevPhoto() {
-            if (filteredPhotos.length === 0) return;
-            currentPhotoIndex = (currentPhotoIndex - 1 + filteredPhotos.length) % filteredPhotos.length;
-            updateLightboxContent();
-        }
-
-        function toggleZoom() {
-            const img = document.getElementById('lbImage');
-            const zoomText = document.getElementById('zoomText');
-            const zoomIcon = document.getElementById('zoomIcon');
-
-            if (!isZoomed) {
-                img.style.transform = "scale(1.6)";
-                img.classList.remove("max-h-[75vh]");
-                img.classList.add("cursor-zoom-out");
-                zoomText.textContent = "Reset Zoom";
-                zoomIcon.className = "fa-solid fa-magnifying-glass-minus";
-                isZoomed = true;
-            } else {
-                resetZoomState();
+            function applyFilterAndSearch() {
+                currentActiveList = galleryData.filter(item => {
+                    const matchesCategory = currentCategory === 'all' || item.category === currentCategory;
+                    const matchesSearch = item.title.toLowerCase().includes(currentQuery) || 
+                                          item.category.toLowerCase().includes(currentQuery);
+                    return matchesCategory && matchesSearch;
+                });
+                renderGallery(currentActiveList);
             }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-emerald-600', 'text-white', 'shadow-md');
+                        b.classList.add('bg-slate-800', 'text-slate-300');
+                    });
+                    btn.classList.remove('bg-slate-800', 'text-slate-300');
+                    btn.classList.add('bg-emerald-600', 'text-white', 'shadow-md');
+
+                    currentCategory = btn.getAttribute('data-filter');
+                    applyFilterAndSearch();
+                });
+            });
+
+            searchInput.addEventListener('input', (e) => {
+                currentQuery = e.target.value.toLowerCase().trim();
+                applyFilterAndSearch();
+            });
         }
 
-        function resetZoomState() {
-            const img = document.getElementById('lbImage');
-            const zoomText = document.getElementById('zoomText');
-            const zoomIcon = document.getElementById('zoomIcon');
+        function setupMobileMenu() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const links = document.querySelectorAll('.mobile-nav-link');
 
-            if (img) {
-                img.style.transform = "scale(1)";
-                img.classList.add("max-h-[75vh]");
-                img.classList.remove("cursor-zoom-out");
-            }
-            if (zoomText) zoomText.textContent = "Zoom 1.5x";
-            if (zoomIcon) zoomIcon.className = "fa-solid fa-magnifying-glass-plus";
-            isZoomed = false;
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                });
+            });
         }
 
-        // Keyboard navigation for Lightbox
-        document.addEventListener('keydown', (e) => {
-            const lbModal = document.getElementById('lightboxModal');
-            if (lbModal && !lbModal.classList.contains('hidden')) {
-                if (e.key === 'ArrowRight') nextPhoto();
-                if (e.key === 'ArrowLeft') prevPhoto();
+        function setupLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            const closeBtn = document.getElementById('lightbox-close');
+            const prevBtn = document.getElementById('lightbox-prev');
+            const nextBtn = document.getElementById('lightbox-next');
+
+            closeBtn.onclick = closeLightbox;
+            prevBtn.onclick = prevLightboxImage;
+            nextBtn.onclick = nextLightboxImage;
+
+            // Close modal on background click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeLightbox();
+            });
+
+            // Keyboard Arrow Support
+            document.addEventListener('keydown', (e) => {
+                if (modal.classList.contains('hidden')) return;
                 if (e.key === 'Escape') closeLightbox();
-                if (e.key.toLowerCase() === 'z') toggleZoom();
-            }
-        });
+                if (e.key === 'ArrowLeft') prevLightboxImage();
+                if (e.key === 'ArrowRight') nextLightboxImage();
+            });
+        }
 
-        function openDonateModal() {
-            document.getElementById('donateModal').classList.remove('hidden');
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            updateLightboxContent();
+            document.getElementById('lightbox-modal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
 
-        function closeDonateModal() {
-            document.getElementById('donateModal').classList.add('hidden');
-            document.body.style.overflow = '';
+        function closeLightbox() {
+            document.getElementById('lightbox-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
         }
 
-        function clearSearch() {
-            document.getElementById('gallerySearchInput').value = '';
-            filterGallery();
+        function updateLightboxContent() {
+            if (currentActiveList.length === 0) return;
+            const item = currentActiveList[currentLightboxIndex];
+            const img = document.getElementById('lightbox-img');
+            
+            img.src = item.file;
+            img.onerror = function() {
+                this.src = `https://placehold.co/800x600/1e293b/10b981?text=Photo+${item.id}`;
+            };
+            
+            document.getElementById('lightbox-title').textContent = item.title;
+            document.getElementById('lightbox-counter').textContent = `Photo ${currentLightboxIndex + 1} of ${currentActiveList.length}`;
         }
 
-        function resetFilters() {
-            activeCategory = "All";
-            document.getElementById('gallerySearchInput').value = '';
-            renderFilterPills();
-            filterGallery();
+        function prevLightboxImage() {
+            currentLightboxIndex = (currentLightboxIndex - 1 + currentActiveList.length) % currentActiveList.length;
+            updateLightboxContent();
         }
 
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const icon = document.getElementById('menuIcon');
-            menu.classList.toggle('hidden');
-
-            if (menu.classList.contains('hidden')) {
-                icon.className = "fa-solid fa-bars text-xl";
-            } else {
-                icon.className = "fa-solid fa-xmark text-xl";
-            }
+        function nextLightboxImage() {
+            currentLightboxIndex = (currentLightboxIndex + 1) % currentActiveList.length;
+            updateLightboxContent();
         }
 
-        // Copy to clipboard with iframe-friendly fallback
-        function copyText(textToCopy, label) {
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(textToCopy).then(() => {
-                    showToast(`Copied ${label} to clipboard!`);
-                }).catch(() => {
-                    fallbackCopy(textToCopy, label);
-                });
-            } else {
-                fallbackCopy(textToCopy, label);
-            }
-        }
-
-        function fallbackCopy(text, label) {
-            const textArea = document.createElement("textarea");
-            textArea.value = text;
-            textArea.style.position = "fixed";
-            textArea.style.left = "-999999px";
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
+        function copyToClipboard(text, type) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
             try {
                 document.execCommand('copy');
-                showToast(`Copied ${label}!`);
+                const toast = document.getElementById('copy-toast');
+                toast.textContent = `${type} ("${text}") copied to clipboard!`;
+                toast.classList.remove('hidden');
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 3000);
             } catch (err) {
-                showToast(`Failed to copy automatically. Copy manually: ${text}`);
+                console.error('Copy failed:', err);
             }
-            document.body.removeChild(textArea);
+            document.body.removeChild(textarea);
         }
-
-        function showToast(message, title = "Success") {
-            const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toastMessage');
-            const toastTitle = document.getElementById('toastTitle');
-
-            toastTitle.textContent = title;
-            toastMessage.textContent = message;
-
-            toast.classList.remove('hidden');
-            toast.classList.add('flex');
-
-            setTimeout(() => {
-                toast.classList.add('hidden');
-                toast.classList.remove('flex');
-            }, 3500);
-        }
-
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            showToast("JazakAllah Khair! Your message has been sent to CMY Secretariat.", "Message Received");
-            e.target.reset();
-        }
-
-        // Initialize gallery on window load
-        window.onload = function() {
-            initGallery();
-        };
     </script>
 </body>
 </html>
